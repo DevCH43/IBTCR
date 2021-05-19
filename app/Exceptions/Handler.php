@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Exceptions\InvalidOrderException;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -25,13 +28,50 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+    protected function getMessageByHttpError($ststusError){
+        $msg = "Error desconocido";
+        switch ($ststusError){
+            case 401:
+                $msg = "No esta autorizado para ver este contenido.";
+                break;
+            case 403:
+                $msg = "Prohibido el acceso.";
+                break;
+            case 404:
+                $msg = "Contenido no encontrado.";
+                break;
+            case 419:
+                $msg = "Tu sesión ha expirado.";
+                break;
+            case 429:
+                $msg = "Se han recibido demasiados parámetros.";
+                break;
+            case 500:
+                $msg = "Error interno en los servidores. Intente más tarde.";
+                break;
+            case 503:
+                $msg = "Servidor no disponible.";
+                break;
+
+        }
+        return $msg;
+    }
+
     /**
      * Register the exception handling callbacks for the application.
      *
      * @return void
      */
-    public function register()
-    {
-        //
+    public function register(){
+
+        $this->renderable(function (HttpException $e, $request) {
+            //dd($e);
+            Auth::logout();
+            return response()->view('errors.errors_page', [
+                'code'=>$e->getStatusCode(),
+                'mensaje' => $this->getMessageByHttpError($e->getStatusCode())
+            ]);
+        });
     }
+
 }
