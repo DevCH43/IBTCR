@@ -83,7 +83,7 @@ class TestCommand extends Command
         $parallel = $this->option('parallel');
 
         $process = (new Process(array_merge(
-                // Binary ...
+            // Binary ...
                 $this->binary(),
                 // Arguments ...
                 $parallel ? $this->paratestArguments($options) : $this->phpunitArguments($options)
@@ -95,8 +95,6 @@ class TestCommand extends Command
                 'LARAVEL_PARALLEL_TESTING_RECREATE_DATABASES' => $this->option('recreate-databases'),
             ] : [],
         ))->setTimeout(null);
-
-// ->setTimeout(null))
 
         try {
             $process->setTty(!$this->option('without-tty'));
