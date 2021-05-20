@@ -94,7 +94,7 @@ class TestCommand extends Command
                 'LARAVEL_PARALLEL_TESTING'                    => 1,
                 'LARAVEL_PARALLEL_TESTING_RECREATE_DATABASES' => $this->option('recreate-databases'),
             ] : [],
-        ));
+        ))->setTimeout(null);
 
 // ->setTimeout(null))
 
