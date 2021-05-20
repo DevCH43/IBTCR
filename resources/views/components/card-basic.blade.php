@@ -2,9 +2,11 @@
 
 @section('contenedor')
     <div class="card">
+
         <div class="card-header">
             <h3 class=" text-120 text-left"> {{ $titulo }} </h3>
         </div>
+
         <div class="card-body">
             <div class="row" id="row-1">
                 <div class="col-12 col-xl-10 offset-xl-1 bgc-white shadow radius-1 overflow-hidden">
