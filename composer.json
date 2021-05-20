@@ -17,13 +17,13 @@
         "laravel/tinker": "^2.6.1",
         "laravel/ui": "^3.2.1",
         "laravelcollective/html": "^6.2.1",
+        "nunomaduro/collision": "^5.4",
         "spatie/laravel-permission": "^4.0.1"
     },
     "require-dev": {
         "facade/ignition": "^2.9.0",
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.4.3",
-        "nunomaduro/collision": "^5.4.0",
         "phpunit/phpunit": "^9.5.4"
     },
     "config": {
