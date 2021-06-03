@@ -16,7 +16,7 @@
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('listaAlumnos',["Id"=>0])}}">
                             <i class="nav-icon fa fa-edit"></i>
                             <span class="nav-text fadeable">Alumnos</span>
                         </a>

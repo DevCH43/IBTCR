@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Catalogos\Alumnos\AlumnosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Storage\ProfileStorageController;
 use App\Http\Controllers\User\UserController;
@@ -46,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('editFotodUser/{Id}',[UserController::class,'editFotodUser'])->name('editFotodUser');
     Route::post('updateFotodUser',[ProfileStorageController::class,'subirArchivoProfile'])->name('updateFotodUser');
 
+    // USUARIOS
+    Route::get('listaAlumnos/{Id}',[AlumnosController::class,'index'])->name('listaAlumnos');
+    Route::get('editAlumno/{Id}',[AlumnosController::class,'editItem'])->name('editAlumno');
+    Route::get('removeAlumno/{Id}/{Dato1}/{Dato2}',[AlumnosController::class,'removeItem'])->name('removeAlumno');
 
 
 /*

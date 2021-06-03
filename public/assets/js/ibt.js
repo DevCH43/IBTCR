@@ -7,26 +7,23 @@ $(document).ready(function() {
 
     const token = window.localStorage.getItem('access_token');
 
-
     $.ajaxSetup({
         headers: {
             'X-CSRF-Token': $("meta[name='csrf-token']").attr("content")
         }
     });
 
-
-
-    if ( $(".removeItemList").length > 0  ){
-        $('.removeItemList').on('click', function(event) {
+    if ( $(".removeItem").length > 0  ){
+        $(".removeItem").on("click", function(event) {
             event.preventDefault();
-            var aID = event.currentTarget.id.split('-');
+            var aID = event.currentTarget.id.split('/');
             var x = confirm("Desea eliminar el registro: "+aID[1]);
 
             if (!x){
                 return false;
             }
 
-            var Url = '/'+aID[0]+'/'+aID[1];
+            var Url = event.currentTarget.id;
 
             $(function() {
                 $.ajax({
@@ -44,7 +41,6 @@ $(document).ready(function() {
             });
         });
     }
-
 
     if ( $(".btnFullModal").length > 0  ){
         $(".btnFullModal").on("click", function (event) {
@@ -292,54 +288,6 @@ $(document).ready(function() {
         });
     }
 
-    if ( $(".estado_id").length > 0 && parseInt($(".estado_id").val()) > 0 ) {
-        getMunicipiosEnabled();
-    }
-
-    function getMunicipiosEnabled(){
-        if ( $(".estado_id").length > 0  ) {
-            $('.estado_id').on('change', function (event) {
-                event.preventDefault();
-                var Url = '/getMunicipioFromEstado/'+event.currentTarget.value;
-                $(function () {
-                    $.ajax({
-                        method: "get",
-                        url: Url
-                    })
-                        .done(function (response) {
-                            if ( $(".municipio_id") ){
-                                $(".municipio_id").empty();
-                                $(".municipio_id").append('<option value="0">Seleccione un municipio</option>');
-                                $.each(response.data, function(i, item){
-                                    $(".municipio_id").append('<option value="'+item.id+'">'+item.municipio+'</option>');
-                                });
-                            }
-                        });
-                });
-
-            });
-        }
-    }
-
-    if ( $(".btnFullModalMap").length > 0  ){
-        $(".btnFullModalMap").on("click", function (event) {
-            event.preventDefault();
-            $("#modalFull .modal-content").empty();
-            $("#modalFull .modal-content").html('<div class="fa-2x m-2"><i class="fa fa-cog fa-spin"></i> Cargado datos...</div>');
-            $("#modalFull").modal('show');
-            var Url = event.currentTarget.href;
-            $(function () {
-                $.ajax({
-                    method: "get",
-                    url: Url
-                })
-                    .done(function (response) {
-                        $("#modalFull .modal-content").html(response);
-                    });
-            });
-        });
-    }
-
     if ( $(".changeRole").length > 0  ){
         $(".changeRole").on("click", function (event) {
             event.preventDefault();
@@ -378,46 +326,5 @@ $(document).ready(function() {
 
         });
     }
-
-
-
-
-    // window.Pusher = require('pusher-js');
-    //
-    // window.Echo = new Echo({
-    //     broadcaster: 'pusher',
-    //     key: process.env.MIX_PUSHER_APP_KEY,
-    //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    //     encrypted: false,
-    //     wsHost: window.location.hostname,
-    //     wsPort: 6001,
-    //     wssPort: 6001,
-    //     disableStats: true,
-    //     auth:{
-    //         headers:{
-    //             Authorization: `Bearer ${token}`
-    //         }
-    //     }
-    // });
-
-
-
-    /*
-        window.Echo.channel('canal-mensaje')
-            .listen('MensajeEvent', (data) => {
-            $(".alert").empty().append(data.persona + ' actualizó un registro...');
-               // console.log('Actualizado......');
-        });
-    */
-
-
-
-    // $("#colonia, #comunidad, #calle, #asentamiento, #tipoasentamiento, #tipocomunidad, #localidad," +
-    //     "#afiliacion, #area, #subarea, #dependencia, #medida, #origen, #prioridad, #servicio, #ubicacon," +
-    //     "#ciudad, #estado, #municipio, #estatus, #codigo, #cp, #search, #num_ext, #num_int," +
-    //     "#search_autocomplete").keyup(function(){
-    //     $(this).val($(this).val().toUpperCase());
-    // });
-
 
 });

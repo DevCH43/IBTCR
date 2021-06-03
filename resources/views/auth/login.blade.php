@@ -8,14 +8,10 @@
                 <div class="row" id="row-1">
                     <div class="col-12 col-xl-10 offset-xl-1 bgc-white shadow radius-1 overflow-hidden">
 
-
-
                         <div class="row" id="row-2">
                             <div id="id-col-intro" class="col-lg-5 d-none d-lg-flex border-r-1 brc-default-l3 px-0">
 
-
                                 @include('layouts.partials.info-login')
-
 
                             </div>
 
@@ -122,4 +118,7 @@
     </div>
 
 
+@endsection
+@section('script-footer')
+    <script src="{{ asset('views/pages/page-login/@page-script.js') }}"></script>
 @endsection

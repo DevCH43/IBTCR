@@ -11,8 +11,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // User::factory(10)->create();
+    public function run(){
+        $this->call(InitializeUserRolesPermissionsArjiSeeder::class);
+        $this->call(InitializeCatalogosArjiSeeder::class);
+        $this->call(ImportUsers01Seeder::class);
+        $this->call(ImportUsers02Seeder::class);
     }
 }

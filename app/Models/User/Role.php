@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Role extends Model
 {
     use HasPermissions;
-    use SoftDeletes;
 
     protected $guard_name = 'web'; // or whatever guard you want to use
     protected $table = 'roles';

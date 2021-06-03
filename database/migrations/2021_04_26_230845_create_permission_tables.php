@@ -24,6 +24,7 @@ class CreatePermissionTables extends Migration
             $table->bigIncrements('id');
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('description',100)->nullable();
+            $table->string('color',25)->default('#7986cb')->nullable();
             $table->string('guard_name')->default('web');
             $table->timestamps();
             $table->unique(['name', 'guard_name']);
@@ -33,6 +34,7 @@ class CreatePermissionTables extends Migration
             $table->bigIncrements('id');
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('description',100)->nullable();
+            $table->string('color',25)->default('#ffab91')->nullable();
             $table->string('guard_name')->default('web');
             $table->timestamps();
             $table->unique(['name', 'guard_name']);
@@ -90,6 +92,71 @@ class CreatePermissionTables extends Migration
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
+
+
+
+        Schema::create($tableNames['role_user'], function (Blueprint $table) use ($tableNames) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('role_id');
+            $table->softDeletes();
+            $table->timestamps();
+            $table->unique(['user_id', 'role_id']);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on($tableNames['users'])
+                ->onDelete('cascade');
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on($tableNames['roles'])
+                ->onDelete('cascade');
+        });
+
+        Schema::create($tableNames['permission_user'], function (Blueprint $table) use ($tableNames) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('permission_id');
+            $table->softDeletes();
+            $table->timestamps();
+            $table->unique(['user_id', 'permission_id']);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on($tableNames['users'])
+                ->onDelete('cascade');
+
+            $table->foreign('permission_id')
+                ->references('id')
+                ->on($tableNames['permissions'])
+                ->onDelete('cascade');
+
+        });
+
+
+        Schema::create($tableNames['permission_role'], function (Blueprint $table) use ($tableNames) {
+            $table->increments('id');
+            $table->integer('role_id');
+            $table->integer('permission_id');
+            $table->softDeletes();
+            $table->timestamps();
+            $table->unique(['role_id', 'permission_id']);
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on($tableNames['roles'])
+                ->onDelete('cascade');
+
+            $table->foreign('permission_id')
+                ->references('id')
+                ->on($tableNames['permissions'])
+                ->onDelete('cascade');
+
+        });
+
+
+
     }
 
     /**
@@ -105,10 +172,14 @@ class CreatePermissionTables extends Migration
             throw new \Exception('Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
         }
 
-        Schema::drop($tableNames['role_has_permissions']);
-        Schema::drop($tableNames['model_has_roles']);
-        Schema::drop($tableNames['model_has_permissions']);
-        Schema::drop($tableNames['roles']);
-        Schema::drop($tableNames['permissions']);
+        Schema::dropIfExists($tableNames['role_user']);
+        Schema::dropIfExists($tableNames['permission_user']);
+        Schema::dropIfExists($tableNames['permission_role']);
+
+        Schema::dropIfExists($tableNames['role_has_permissions']);
+        Schema::dropIfExists($tableNames['model_has_roles']);
+        Schema::dropIfExists($tableNames['model_has_permissions']);
+        Schema::dropIfExists($tableNames['roles']);
+        Schema::dropIfExists($tableNames['permissions']);
     }
 }

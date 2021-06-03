@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Catalogos\Alumnos;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class AlumnosController extends Controller{
 
@@ -28,12 +31,40 @@ class AlumnosController extends Controller{
 
         $this->tableName = 'alumnos';
 
+//        $items = User::query()->whereHas('roles', function ($query) {
+//            return $query->whereIn('name', ['ALUMNO']);
+//        })->get();
+
+//        $items = User::query()->whereHas('roles', function ($query) {
+//            return $query->whereIn('name', ['PADRE FAMILIA','MADRE FAMILIA','FAMILIAR']);
+//        })->get();
+
+        $items = User::query()->get();
 
         $user = Auth::user();
 
         $request->session()->put('items', $items);
 
-        return view('catalogos.catalogo.persona.persona_perfil_list',$this->array_list($items,$user));
+        return view('layouts.Catalogos.Alumnos.alumnos_list',[
+            "items"       => $items,
+            "user"        => $user,
+            "tituloTabla" => "Listado de Alumnos",
+            "editItem"    => "editAlumno",
+            "removeItem"  => "removeAlumno",
+        ]);
+    }
+
+
+    // ***************** ELIMINA AL USUARIO VIA AJAX ++++++++++++++++++++ //
+    protected function removeItem($Id = 0, $dato1 = null, $dato2 = null){
+        $code = 'OK';
+        $msg = "Registro Eliminado con éxito!";
+        //dd($Id);
+        $user = User::withTrashed()->findOrFail($Id);
+        $user->forceDelete();
+
+        return Response::json(['mensaje' => $msg, 'data' => $code, 'status' => '200'], 200);
+
     }
 
 
