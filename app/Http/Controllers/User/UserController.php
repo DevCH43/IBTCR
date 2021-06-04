@@ -35,32 +35,33 @@ class UserController extends Controller{
     public function __construct(){
     }
 
-    protected function showListUser(Request $request)
-    {
-        ini_set('max_execution_time', 300);
+    protected function index(Request $request){
+
+        $this->lim_max_reg = config('ibt.limite_maximo_registros');
+        $this->lim_min_reg = config('ibt.limite_minimo_registros');
+        $this->max_reg_con = config('ibt.maximo_registros_consulta');
+        $this->min_reg_con = config('ibt.minimo_registros_consulta');
+
+        @ini_set( 'upload_max_size' , '16384M' );
+        @ini_set( 'post_max_size', '16384M');
+        @ini_set( 'max_execution_time', '960000' );
+
         $this->tableName = 'users';
-        $filters = $request->all( ['search', 'roles', 'palabras_roles'] );
-        $items = User::query()
-            ->filterBySearch($filters)
-            ->orderByDesc('id')
-            ->paginate();
-        $items->appends($filters)->fragment('table');
-        $user = Auth::User();
-        $roles = Role::all();
 
+//        $items = User::query()->get()->take(250);
+        $items = User::query()->get();
 
-        return view('catalogos.user.user_list',
-            [
-                'items' => $items,
-                'leyenda' => 'Listado de ',
-                'tableName' => "Usuarios ",
-                'navCat' => $this->navCat,
-                'showEdit' => 'editUser',
-                'user' => $user,
-                'roles' => $roles,
-                'listItems' => 'listUsers',
-            ]
-        );
+        $user = Auth::user();
+
+        $request->session()->put('items', $items);
+
+        return view('layouts.User._users_list',[
+            "items"       => $items,
+            "user"        => $user,
+            "tituloTabla" => "Listado de Usuarios",
+            "editItem"    => null,
+            "removeItem"  => null,
+        ]);
     }
 
 // ***************** EDITA LOS DATOS DEL USUARIO SOLO LECTURA ++++++++++++++++++++ //

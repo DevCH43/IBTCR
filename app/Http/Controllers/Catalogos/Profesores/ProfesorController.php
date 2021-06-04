@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Catalogos\Alumnos;
+namespace App\Http\Controllers\Catalogos\Profesores;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 
-class AlumnosController extends Controller{
+class ProfesorController extends Controller{
 
-    protected $tableName = "personas";
-    protected $navCat = "personas";
+
+    protected $tableName = "users";
+    protected $navCat = "users";
     protected $max_reg_con = 0;
     protected $min_reg_con = 0;
     protected $lim_max_reg = 0;
@@ -29,10 +30,10 @@ class AlumnosController extends Controller{
         @ini_set( 'post_max_size', '16384M');
         @ini_set( 'max_execution_time', '960000' );
 
-        $this->tableName = 'alumnos';
+        $this->tableName = 'users';
 
         $items = User::query()->whereHas('roles', function ($query) {
-            return $query->whereIn('name', ['ALUMNO']);
+            return $query->whereIn('name', ['PROFESOR']);
         })->get();
 
 //        $items = User::query()->whereHas('roles', function ($query) {
@@ -47,12 +48,12 @@ class AlumnosController extends Controller{
 
         $request->session()->put('items', $items);
 
-        return view('layouts.Catalogos.Alumnos._alumnos_list',[
+        return view('layouts.Catalogos.Profesores._profesores_list',[
             "items"       => $items,
             "user"        => $user,
-            "tituloTabla" => "Listado de Alumnos",
-            "editItem"    => "editAlumno",
-            "removeItem"  => "removeAlumno",
+            "tituloTabla" => "Listado de Profesores",
+            "editItem"    => "editProfesor",
+            "removeItem"  => "removeProfesor",
         ]);
     }
 
@@ -68,7 +69,6 @@ class AlumnosController extends Controller{
         return Response::json(['mensaje' => $msg, 'data' => $code, 'status' => '200'], 200);
 
     }
-
 
 
 }

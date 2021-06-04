@@ -62,12 +62,9 @@
 <script src="{{ asset('node_modules/popper.js/dist/umd/popper.js') }}"></script>
 <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.js') }}"></script>
 
+<script src="{{ asset('node_modules/sortablejs/Sortable.js') }}"></script>
 
 <script src="{{ asset('dist/js/ace.js') }}"></script>
-
-
-<!-- demo.js is only for Ace's demo and you shouldn't use it -->
-<script src="{{ asset('app/browser/demo.js') }}"></script>
 
 <script src="{{ asset('assets/js/datatable-plus/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('assets/js/datatable-plus/dataTables.responsive.js') }}"></script>

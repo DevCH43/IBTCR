@@ -327,4 +327,15 @@ $(document).ready(function() {
         });
     }
 
+
+    if ( $(".mnuInit").length > 0  ){
+        var obj = $(".mnuInit");
+        obj.on("click", function (event) {
+            //event.preventDefault();
+            //obj.each(function() { $( this ).removeClass( "active" ); });
+            $(this).addClass('active');
+        });
+    }
+
+
 });

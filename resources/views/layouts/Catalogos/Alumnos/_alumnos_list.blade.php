@@ -5,6 +5,6 @@
     @slot('editItem',$editItem)
     @slot('removeItem',$removeItem)
     @slot('Tabla')
-        @include('share.Catalogos.Alumnos.alumnos_list')
+        @include('share.Catalogos.Alumnos.__alumnos_list')
     @endslot
 </x-catalogo-list>

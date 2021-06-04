@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Catalogos\Alumnos\AlumnosController;
+use App\Http\Controllers\Catalogos\Profesores\ProfesorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Storage\ProfileStorageController;
 use App\Http\Controllers\User\UserController;
@@ -47,11 +48,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('editFotodUser/{Id}',[UserController::class,'editFotodUser'])->name('editFotodUser');
     Route::post('updateFotodUser',[ProfileStorageController::class,'subirArchivoProfile'])->name('updateFotodUser');
 
-    // USUARIOS
+    // ALUMNOS
     Route::get('listaAlumnos/{Id}',[AlumnosController::class,'index'])->name('listaAlumnos');
     Route::get('editAlumno/{Id}',[AlumnosController::class,'editItem'])->name('editAlumno');
     Route::get('removeAlumno/{Id}/{Dato1}/{Dato2}',[AlumnosController::class,'removeItem'])->name('removeAlumno');
 
+    // PROFESORES
+    Route::get('listaProfesores/{Id}',[ProfesorController::class,'index'])->name('listaProfesores');
+    Route::get('editProfesor/{Id}',[ProfesorController::class,'editItem'])->name('editProfesor');
+    Route::get('removeProfesor/{Id}/{Dato1}/{Dato2}',[ProfesorController::class,'removeItem'])->name('removeProfesor');
+
+    // USUARIOS
+    Route::get('listaUsuarios/{Id}',[UserController::class,'index'])->name('listaUsuarios');
+    Route::get('editUsuario/{Id}',[UserController::class,'editItem'])->name('editUsuario');
+    Route::get('removeUsuario/{Id}/{Dato1}/{Dato2}',[AlumnosController::class,'removeItem'])->name('removeUsuario');
 
 /*
     Route::get('editProfilePassword/', 'User\UserController@editProfilePassword')->name('editProfilePassword/');

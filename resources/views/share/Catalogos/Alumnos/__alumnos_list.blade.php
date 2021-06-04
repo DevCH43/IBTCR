@@ -33,15 +33,15 @@
         </td>
         <td >
             @foreach($item->roles as $rol)
-                <span class="badge badge-sm text-white pb-1 px-25 radius-2" style="background-color: '{{$rol->color}}' !important;">{{$rol->name}}</span>
+                <span class="badge badge-sm text-white pb-1 px-25 radius-2" style="background-color: {{$rol->color}} !important;">{{$rol->name}}</span>
             @endforeach
         </td>
 
         <td>
             <!-- action buttons -->
             <div class='d-none d-lg-flex'>
-                @include('share.bars.editItem')
-                @include('share.bars.removeItem')
+                @include('share.bars.___editItem')
+                @include('share.bars.___removeItem')
             </div>
 
             <!-- show a dropdown in mobile -->
@@ -52,8 +52,8 @@
 
                 <div class="dropdown-menu dd-slide-up dd-slide-none-lg">
                     <div class="dropdown-inner">
-                        @include('share.bars.editItem')
-                        @include('share.bars.removeItem')
+                        @include('share.bars.___editItem')
+                        @include('share.bars.___removeItem')
                     </div>
                 </div>
             </div>
