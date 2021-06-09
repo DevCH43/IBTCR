@@ -16,6 +16,7 @@ class AlumnosController extends Controller{
     protected $min_reg_con = 0;
     protected $lim_max_reg = 0;
     protected $lim_min_reg = 0;
+    protected $msg = "";
 
 // ***************** MUESTRA EL LISTADO DE Personas ++++++++++++++++++++ //
     protected function index(Request $request){
@@ -56,6 +57,26 @@ class AlumnosController extends Controller{
         ]);
     }
 
+    protected function editItem($Id){
+
+        $User = User::find($Id);
+
+        // dd( $User->fecha_nacimiento );
+
+        $user = Auth::user();
+
+        return view('layouts.Catalogos.Alumnos._alumno_edit',[
+            "item"     => $User,
+            "User"     => $user,
+            "titulo"   => "Editando el registro: ".$Id,
+            'Route'    => 'updateFotodUser',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => true,
+            'IsNew'    => true,
+        ]);
+
+    }
 
     // ***************** ELIMINA AL USUARIO VIA AJAX ++++++++++++++++++++ //
     protected function removeItem($Id = 0, $dato1 = null, $dato2 = null){

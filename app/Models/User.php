@@ -6,7 +6,6 @@ use App\Classes\GeneralFunctios;
 use App\Filters\User\UserFilter;
 use App\Models\Catalogos\Empresa;
 use App\Models\Catalogos\Familia;
-use App\Models\Relaciones\FamiliaAlumnoFamiliar;
 use App\Models\User\Permission;
 use App\Models\User\Role;
 use App\Models\User\UserAdress;
@@ -182,6 +181,8 @@ class User extends Authenticatable
             $F->validImage($user, 'profile', 'profile/');
         }else{
             if ($role_id > 0) {
+                $user->curp = $curp;
+                $user->save();
                 $user->roles()->detach($role_id);
                 $user->roles()->attach($role_id);
             }

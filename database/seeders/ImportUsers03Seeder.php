@@ -6,8 +6,11 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Log;
 
-class ImportUsers03Seeder extends Seeder
-{
+class ImportUsers03Seeder extends Seeder{
+
+
+
+
     /**
      * Run the database seeds.
      *
@@ -69,8 +72,10 @@ class ImportUsers03Seeder extends Seeder
             }
         }
 
-
-
-
     }
+
+
+
+
+
 }
