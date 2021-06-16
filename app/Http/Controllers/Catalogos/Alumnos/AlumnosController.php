@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Catalogos\Alumnos;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,35 +49,53 @@ class AlumnosController extends Controller{
 
         $request->session()->put('items', $items);
 
-        return view('layouts.Catalogos.Alumnos._alumnos_list',[
+        return view('layouts.User.generales._users_list',[
             "items"       => $items,
             "user"        => $user,
             "tituloTabla" => "Listado de Alumnos",
-            "editItem"    => "editAlumno",
-            "removeItem"  => "removeAlumno",
+            'editItem'    => 'editUsuario',
+            'removeItem'  => 'removeUsuario',
         ]);
     }
 
     protected function editItem($Id){
 
         $User = User::find($Id);
-
-        // dd( $User->fecha_nacimiento );
-
         $user = Auth::user();
 
-        return view('layouts.Catalogos.Alumnos._alumno_edit',[
+        return view('layouts.User.generales._user_edit',[
             "item"     => $User,
             "User"     => $user,
             "titulo"   => "Editando el registro: ".$Id,
-            'Route'    => 'updateFotodUser',
+            'Route'    => 'updateUsuario',
             'Method'   => 'POST',
             'msg'      => $this->msg,
-            'IsUpload' => true,
-            'IsNew'    => true,
+            'IsUpload' => false,
+            'IsNew'    => false,
         ]);
 
     }
+
+    protected function updateItem(UserRequest $request) {
+        $User = $request->manageUser();
+        if (!isset($User)) {
+            abort(404);
+        }
+        $user = Auth::user();
+
+        return view('layouts.User.generales._user_edit',[
+            "item"     => $User,
+            "User"     => $user,
+            "titulo"   => "Editando el registro: ".$User->id,
+            'Route'    => 'updateUsuario',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => false,
+        ]);
+
+    }
+
 
     // ***************** ELIMINA AL USUARIO VIA AJAX ++++++++++++++++++++ //
     protected function removeItem($Id = 0, $dato1 = null, $dato2 = null){

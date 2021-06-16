@@ -337,5 +337,24 @@ $(document).ready(function() {
         });
     }
 
+    if ( $("#list_username").length > 0  ){
+        var obj = $("#list_username");
+        obj.on("change", function (event) {
+            event.preventDefault();
+            var Id = event.currentTarget.value;
+            //alert(Id);
+            $(function () {
+                $.ajax({
+                    method: "get",
+                    url: "getUsernameNext/"+Id
+                })
+                    .done(function (response) {
+                        $(".info_list_username").html(response.data.username);
+                        $("#username").val(response.data.username);
+                    });
+            });
+        });
+    }
+
 
 });

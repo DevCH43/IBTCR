@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Permission extends Model
 {
     use HasRoles;
-    use SoftDeletes;
 
     protected $guard_name = 'web'; // or whatever guard you want to use
     protected $table = 'permissions';

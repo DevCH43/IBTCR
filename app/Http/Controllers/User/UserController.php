@@ -48,48 +48,117 @@ class UserController extends Controller{
 
         $this->tableName = 'users';
 
-//        $items = User::query()->get()->take(250);
-        $items = User::query()->get();
+        $items = User::query()->orderByDesc('id')->get()->take($this->max_reg_con);
+        // $items = User::query()->get();
 
         $user = Auth::user();
 
         $request->session()->put('items', $items);
 
-        return view('layouts.User._users_list',[
-            "items"       => $items,
-            "user"        => $user,
-            "tituloTabla" => "Listado de Usuarios",
-            "editItem"    => null,
-            "removeItem"  => null,
+        return view('layouts.User.generales._users_list',[
+            'items'       => $items,
+            'user'        => $user,
+            'tituloTabla' => 'Listado de Usuarios',
+            'newItem'     => 'newUsuario',
+            'editItem'    => 'editUsuario',
+            'removeItem'  => 'removeUsuario',
         ]);
     }
 
-// ***************** EDITA LOS DATOS DEL USUARIO SOLO LECTURA ++++++++++++++++++++ //
-    protected function editProfileReadOnly()
-    {
+
+    protected function newItem(){
+
         $user = Auth::user();
-        return view('catalogos.user.profile.user_profile_edit',
-            [
-                'items' => $user,
-                'leyenda' => 'Editando el',
-                'tableName' => "Usuario ",
-                'navCat' => $this->navCat,
-                'user' => $user,
-            ]
-        );
+
+
+        return view('layouts.User.generales._user_edit',[
+            "item"     => null,
+            "User"     => $user,
+            "titulo"   => "Nuevo registro ",
+            'Route'    => 'createUsuario',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => true,
+        ]);
+
     }
 
-// ***************** MANDA A LLAMAR LA PANTALLA PARA NUEVO USUARIO ++++++++++++++++++++ //
-    protected function newUser()
-    {
-        return view('catalogos.catalogo.user.user_profile_new',
-            [
-                'titulo_catalogo' => 'Catálogo de Usuarios',
-                'titulo_header'   => 'Nuevo Usuario ',
-                'postNew' => 'createUser',
-            ]
-        );
+    protected function createItem(UserRequest $request) {
+        //dd($request);
+        $User = $request->manageUser();
+        if (!isset($User)) {
+            abort(404);
+        }
+        $user = Auth::user();
+
+        return view('layouts.User.generales._user_edit',[
+            "item"     => $User,
+            "User"     => $user,
+            "titulo"   => "Editando el registro: ".$User->id,
+            'Route'    => 'updateUsuario',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => false,
+        ]);
+
     }
+
+
+    protected function editItem($Id){
+
+        $User = User::find($Id);
+        $user = Auth::user();
+
+        return view('layouts.User.generales._user_edit',[
+            "item"     => $User,
+            "User"     => $user,
+            "titulo"   => "Editando el registro: ".$Id,
+            'Route'    => 'updateUsuario',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => false,
+        ]);
+
+    }
+
+    protected function updateItem(UserRequest $request) {
+        $User = $request->manageUser();
+        if (!isset($User)) {
+            abort(404);
+        }
+        $user = Auth::user();
+
+        return view('layouts.User.generales._user_edit',[
+            "item"     => $User,
+            "User"     => $user,
+            "titulo"   => "Editando el registro: ".$User->id,
+            'Route'    => 'updateUsuario',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => false,
+        ]);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ***************** EDITA LOS DATOS DEL USUARIO PARA ESCRITURA ++++++++++++++++++++ //
     protected function editProfile($Id)
@@ -98,6 +167,7 @@ class UserController extends Controller{
         $user = User::find($Id);
         return view('User.profile',
             [
+                'item' => $user,
                 'User' => $user,
                 'titulo' => 'Mi Perfil',
                 'Route' => 'updateProfile',
@@ -115,43 +185,6 @@ class UserController extends Controller{
         $User = Auth::user();
         session(['msg' => 'value']);
         return redirect()->route('editProfile',['Id'=>$User]);
-    }
-
-// ***************** GUARDA LOS CAMBIOS EN EL USUARIO ++++++++++++++++++++ //
-    protected function updateUser(UserRequest $request)
-    {
-//        dd($request);
-        $user = $request->manageUser();
-        if (!isset($user)) {
-            abort(404);
-        }
-        return view('catalogos.user.profile.user_profile_edit',
-            [
-                'user' => $user,
-                'items' => $user,
-                'titulo_catalogo' => $user->Fullname,
-                'titulo_header'   => '',
-                'putEdit' => 'EditUser',
-            ]
-        );
-    }
-
-// ***************** CREAR NUEVO USUARIO ++++++++++++++++++++ //
-    protected function createUser(UserRequest $request)
-    {
-        $user = $request->manageUser();
-        if (!isset($user)) {
-            abort(404);
-        }
-        return view('catalogos.catalogo.user.user_profile_edit',
-            [
-                'user' => $user,
-                'items' => $user,
-                'titulo_catalogo' => $user->Fullname,
-                'titulo_header'   => 'Editando..',
-                'putEdit' => 'EditUser',
-            ]
-        );
     }
 
 // ***************** MUESTRA LA EDICIÓMN DE FOTO ++++++++++++++++++++ //
@@ -196,21 +229,30 @@ class UserController extends Controller{
 
     }
 
-// ***************** ELIMINA AL USUARIO VIA AJAX ++++++++++++++++++++ //
-    protected function removeUser($id = 0)
-    {
-        $user = User::withTrashed()->findOrFail($id);
-        if (isset($user)) {
-            if (!$user->trashed()) {
-                $user->forceDelete();
-            } else {
-                $user->forceDelete();
-            }
-            return Response::json(['mensaje' => 'Registro eliminado con éxito', 'data' => 'OK', 'status' => '200'], 200);
-        } else {
-            return Response::json(['mensaje' => 'Se ha producido un error.', 'data' => 'Error', 'status' => '200'], 200);
-        }
+    // ***************** Devuelve el Proximo Usuario++++++++++++++++++++ //
+    protected function getUsernameNext($IdType = 0){
+        $data = [];
+        $msg = "OK";
+        //dd($Id);
+        $data = User::getUsernameNext($IdType);
+
+        return Response::json(['mensaje' => $msg, 'data' => $data, 'status' => '200'], 200);
+
     }
+
+
+    // ***************** ELIMINA AL USUARIO VIA AJAX ++++++++++++++++++++ //
+    protected function removeItem($Id = 0, $dato1 = null, $dato2 = null){
+        $code = 'OK';
+        $msg = "Registro Eliminado con éxito!";
+        //dd($Id);
+        $user = User::withTrashed()->findOrFail($Id);
+        $user->forceDelete();
+
+        return Response::json(['mensaje' => $msg, 'data' => $code, 'status' => '200'], 200);
+
+    }
+
 
 
 }

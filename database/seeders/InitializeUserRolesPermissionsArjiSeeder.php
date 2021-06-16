@@ -145,6 +145,8 @@ class InitializeUserRolesPermissionsArjiSeeder extends Seeder
         Role::create(['name'=>'TUTOR','description'=>'Tutor', 'color'=>'#00695c',  'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'FAMILIAR','description'=>'Otro Familiar', 'color'=>'#7c4dff',  'guard_name'=>'web'])->permissions()->attach($P7);
 
+        Role::create(['name'=>'CONTADOR','description'=>'Contador(a)', 'color'=>'#FF00FF',  'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'CONTRALOR','description'=>'Contador(a)', 'color'=>'#FF00ee',  'guard_name'=>'web'])->permissions()->attach($P7);
 
 
 

@@ -2,8 +2,10 @@
 
 namespace App\Traits\User;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 trait UserAttributes
@@ -104,6 +106,23 @@ trait UserAttributes
             $home = 'home';
         }
         return $withSlash ? $slash . $home : $home;
+    }
+
+    public static function getUsernameNext( $IdGrupo = 0): array{
+        $next_id=DB::select("SELECT NEXTVAL('users_id_seq')");
+        $Id = intval($next_id['0']->nextval);
+        DB::select("SELECT SETVAL('users_id_seq',".($Id-1).")" );
+        $Id = str_pad($Id,6,'0',0);
+        switch ($IdGrupo){
+            case 1:
+                return ['username'=>'alu'.$Id,'role_id'=>16];
+            case 2:
+                return ['username'=>'pro'.$Id,'role_id'=>17];
+            case 3:
+                return ['username'=>'per'.$Id,'role_id'=>3];
+            default:
+                return ['username'=>'','role_id'=>-1];
+        }
     }
 
 

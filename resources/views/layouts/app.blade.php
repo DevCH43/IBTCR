@@ -8,6 +8,8 @@
 
     <title>{{ config('app.name')  }}</title>
 
+    @livewireStyles
+
     <!-- include common vendor stylesheets & fontawesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">
 
@@ -34,7 +36,11 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js">
 
+
+    @yield('style-header')
+
     <link rel="icon" type="image/png" href="{{ asset('asset/favicon.png') }}" />
+
 
 
 </head>
@@ -57,6 +63,8 @@
     @endauth
 </div>
 
+@livewireScripts
+
 <!-- include common vendor scripts used in demo pages -->
 <script src="{{ asset('node_modules/jquery/dist/jquery.js') }}"></script>
 <script src="{{ asset('node_modules/popper.js/dist/umd/popper.js') }}"></script>
@@ -70,7 +78,6 @@
 <script src="{{ asset('assets/js/datatable-plus/dataTables.responsive.js') }}"></script>
 <script src="{{ asset('/assets/js/datatable-plus/dataTables-call.js') }}"></script>
 <script src="{{ asset('assets/js/datatable.js') }}"></script>
-
 
 <!-- "Login" page styles, specific to this page for demo only -->
 @yield('script-footer')

@@ -33,10 +33,7 @@ class User extends Authenticatable
         'username', 'email', 'password','nombre','ap_paterno','ap_materno',
         'admin','curp','emails','celulares','telefonos','fecha_nacimiento','genero',
         'root','filename','filename_png','filename_thumb','id_sistema_anterior',
-        'empresa_id','status_user','ip','host',
-        'logged_at','logout_at', 'session_id',
-        'email_verified_at','deleted_at','remember_token',
-        'empresa_id',
+        'empresa_id','status_user',
         'user_id_anterior',
         'creado_por_id'
     ];
@@ -68,15 +65,15 @@ class User extends Authenticatable
 
 
     public function user_adress(){
-        return $this->hasMany(UserAdress::class);
+        return $this->hasOne(UserAdress::class);
     }
 
     public function user_data_extend(){
-        return $this->hasMany(UserDataExtend::class);
+        return $this->hasOne(UserDataExtend::class);
     }
 
     public function user_data_social(){
-        return $this->hasMany(UserSocial::class);
+        return $this->hasOne(UserSocial::class);
     }
 
     public function isAdmin(){

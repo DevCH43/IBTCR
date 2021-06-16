@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
     // ALUMNOS
     Route::get('listaAlumnos/{Id}',[AlumnosController::class,'index'])->name('listaAlumnos');
     Route::get('editAlumno/{Id}',[AlumnosController::class,'editItem'])->name('editAlumno');
+    Route::put('updateAlumno',[AlumnosController::class,'updateItem'])->name('updateAlumno');
     Route::get('removeAlumno/{Id}/{Dato1}/{Dato2}',[AlumnosController::class,'removeItem'])->name('removeAlumno');
 
     // PROFESORES
@@ -60,8 +61,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     // USUARIOS
     Route::get('listaUsuarios/{Id}',[UserController::class,'index'])->name('listaUsuarios');
+    Route::get('newUsuario',[UserController::class,'newItem'])->name('newUsuario');
+    Route::post('createUsuario/',[UserController::class,'createItem'])->name('createUsuario');
     Route::get('editUsuario/{Id}',[UserController::class,'editItem'])->name('editUsuario');
-    Route::get('removeUsuario/{Id}/{Dato1}/{Dato2}',[AlumnosController::class,'removeItem'])->name('removeUsuario');
+    Route::put('updateUsuario/',[UserController::class,'updateItem'])->name('updateUsuario');
+    Route::get('removeUsuario/{Id}/{Dato1}/{Dato2}',[UserController::class,'removeItem'])->name('removeUsuario');
+    Route::get('getUsernameNext/{IdType}',[UserController::class,'getUsernameNext'])->name('getUsernameNext');
 
 /*
     Route::get('editProfilePassword/', 'User\UserController@editProfilePassword')->name('editProfilePassword/');

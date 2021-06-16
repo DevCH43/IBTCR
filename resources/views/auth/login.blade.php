@@ -119,6 +119,9 @@
 
 
 @endsection
+@section('style-header')
+    <script src="{{ asset('views/pages/page-login/@page-style.css') }}"></script>
+@endsection
 @section('script-footer')
     <script src="{{ asset('views/pages/page-login/@page-script.js') }}"></script>
 @endsection
