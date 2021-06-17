@@ -18,6 +18,7 @@ class SelectForm extends Component{
      * @return valor
      */
     public function __construct(string $nombre = null, string $cols = null, string $class = null, array $arr = null, $valor = null){
+        //dd($this->arr);
 
         $this->nombre = $nombre ?? 'TextField_'.time();
         $this->cols = $cols ?? 2;
@@ -34,7 +35,7 @@ class SelectForm extends Component{
      */
     public function render()
     {
-//        dd($this->arr);
+        //dd($this->arr);
         return view('components.inputs.select-form');
     }
 }

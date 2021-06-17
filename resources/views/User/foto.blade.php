@@ -5,10 +5,8 @@
     @slot('Method',$Method ?? '')
     @slot('IsNew',$IsNew ?? false)
     @slot('IsUpload',$IsUpload ?? false)
+    @slot('ReadOnly',$ReadOnly ?? false)
     @slot('items_forms')
         @include('layouts.User.__foto')
-    @endslot
-    @slot('buttoms_forms')
-        @include('share.bars.___foot-bar-1')
     @endslot
 </x-card-basic>

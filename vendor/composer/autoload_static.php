@@ -35,10 +35,10 @@ class ComposerStaticInit631e51c96167c477576e7e5bd0581ffb
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
-        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
+        '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -623,11 +623,9 @@ class ComposerStaticInit631e51c96167c477576e7e5bd0581ffb
         'App\\Traits\\Vehiculo\\VehiculosAttributes' => __DIR__ . '/../..' . '/app/Traits/Vehiculo/VehiculosAttributes.php',
         'App\\View\\Components\\CardBasic' => __DIR__ . '/../..' . '/app/View/Components/CardBasic.php',
         'App\\View\\Components\\Inputs\\DateField' => __DIR__ . '/../..' . '/app/View/Components/Inputs/DateField.php',
+        'App\\View\\Components\\Inputs\\LabelFormStatic' => __DIR__ . '/../..' . '/app/View/Components/Inputs/LabelFormStatic.php',
         'App\\View\\Components\\Inputs\\SelectForm' => __DIR__ . '/../..' . '/app/View/Components/Inputs/SelectForm.php',
         'App\\View\\Components\\Inputs\\TextField' => __DIR__ . '/../..' . '/app/View/Components/Inputs/TextField.php',
-        'App\\View\\Components\\card-form-normal' => __DIR__ . '/../..' . '/app/View/Components/card-form-normal.php',
-        'App\\View\\Components\\catalogo-list' => __DIR__ . '/../..' . '/app/View/Components/catalogo-list.php',
-        'App\\View\\Components\\errors-page' => __DIR__ . '/../..' . '/app/View/Components/errors-page.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

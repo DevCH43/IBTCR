@@ -28,11 +28,11 @@
                                         @endif
                                         <span class=" position-tr bgc-success p-1 radius-round border-2 brc-white mt-2px mr-2px"></span>
                                     </div>
-                                    <div class="text-center mt-2">
+                                    <div class="text-center mt-0">
                                         <h5 class="text-130 text-dark-m3">
                                             {{$User->FullName}}
                                         </h5>
-                                        <span class="text-80 text-primary text-600">
+                                        <span class="text-70 text-primary text-600">
                                             {{$User->Role()->name}}
                                         </span>
                                     </div>
@@ -41,16 +41,17 @@
                             </div>
                         </div>
 
-                        <div id="id-col-main" class="col-12 col-lg-8 py-lg-3 bgc-white px-0">
+                        <div id="id-col-main" class="col-12 col-lg-8 bgc-white px-0">
                             <div class="col-md-12">
                                 @include('share.otros.___erros-forms')
-                                <form method="{{$Method}}" action="{{ route($Route) }}"  accept-charset="UTF-8" @if($IsUpload) enctype="multipart/form-data" @endif >
+                                <form method="{{$Method}}" action="{{ route($Route) }}"  accept-charset="UTF-8" @if($IsUpload) enctype="multipart/form-data" @endif class="m-0" >
                                     @csrf
                                     @if( !$IsNew )
                                         {{ method_field('PUT') }}
                                     @endif
                                     {{ $items_forms }}
-                                    {{ $buttoms_forms }}
+                                    @include('share.bars.___foot-bar-1')
+
                                 </form>
                             </div>
 

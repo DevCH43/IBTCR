@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('editUsuario/{Id}',[UserController::class,'editItem'])->name('editUsuario');
     Route::put('updateUsuario/',[UserController::class,'updateItem'])->name('updateUsuario');
     Route::get('removeUsuario/{Id}/{Dato1}/{Dato2}',[UserController::class,'removeItem'])->name('removeUsuario');
-    Route::get('getUsernameNext/{IdType}',[UserController::class,'getUsernameNext'])->name('getUsernameNext');
+    Route::get('getUsernameNext/{Abreviatura}',[UserController::class,'getUsernameNext'])->name('getUsernameNext');
 
 /*
     Route::get('editProfilePassword/', 'User\UserController@editProfilePassword')->name('editProfilePassword/');

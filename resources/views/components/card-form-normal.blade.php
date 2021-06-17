@@ -18,7 +18,7 @@
                     {{ method_field('PUT') }}
                 @endif
                 {{ $items_forms }}
-                {{ $buttoms_forms }}
+                @include('share.bars.___foot-bar-1')
             </form>
 
         </div>

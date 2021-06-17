@@ -69,11 +69,12 @@ class UserController extends Controller{
     protected function newItem(){
 
         $user = Auth::user();
-
-
+        $roles = Role::query()->where('id','>',3)->orderBy('name') ->pluck('name','abreviatura')->toArray();
+        //dd($roles);
         return view('layouts.User.generales._user_edit',[
             "item"     => null,
             "User"     => $user,
+            "Roles"    => $roles,
             "titulo"   => "Nuevo registro ",
             'Route'    => 'createUsuario',
             'Method'   => 'POST',
@@ -91,7 +92,7 @@ class UserController extends Controller{
             abort(404);
         }
         $user = Auth::user();
-
+        session(['msg' => 'value']);
         return view('layouts.User.generales._user_edit',[
             "item"     => $User,
             "User"     => $user,
@@ -130,7 +131,7 @@ class UserController extends Controller{
             abort(404);
         }
         $user = Auth::user();
-
+        session(['msg' => 'value']);
         return view('layouts.User.generales._user_edit',[
             "item"     => $User,
             "User"     => $user,
@@ -167,12 +168,13 @@ class UserController extends Controller{
         $user = User::find($Id);
         return view('User.profile',
             [
-                'item' => $user,
-                'User' => $user,
-                'titulo' => 'Mi Perfil',
-                'Route' => 'updateProfile',
-                'Method' => 'POST',
-                'msg' => $this->msg,
+                'item'     => $user,
+                'User'     => $user,
+                'titulo'   => 'Mi Perfil',
+                'Route'    => 'updateProfile',
+                'Method'   => 'POST',
+                'msg'      => $this->msg,
+                'ReadOnly' => true,
             ]
         );
     }
@@ -230,11 +232,11 @@ class UserController extends Controller{
     }
 
     // ***************** Devuelve el Proximo Usuario++++++++++++++++++++ //
-    protected function getUsernameNext($IdType = 0){
+    protected function getUsernameNext($Abreviatura = ''){
         $data = [];
         $msg = "OK";
         //dd($Id);
-        $data = User::getUsernameNext($IdType);
+        $data = User::getUsernameNext($Abreviatura);
 
         return Response::json(['mensaje' => $msg, 'data' => $data, 'status' => '200'], 200);
 

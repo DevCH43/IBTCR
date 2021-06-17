@@ -35,6 +35,7 @@ class CreatePermissionTables extends Migration
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('description',100)->nullable();
             $table->string('color',25)->default('#ffab91')->nullable();
+            $table->string('abreviatura',25)->default('none')->nullable()->unique();
             $table->string('guard_name')->default('web');
             $table->timestamps();
             $table->unique(['name', 'guard_name']);

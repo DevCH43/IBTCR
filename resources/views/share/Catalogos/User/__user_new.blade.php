@@ -1,5 +1,5 @@
     <div class="form-group row">
-        <x-inputs.select-form cols="4" nombre="list username" :arr="['1'=>'Alumno', '2'=>'Profesor', '3'=>'Otro']" ></x-inputs.select-form>
+        <x-inputs.select-form cols="4" nombre="list username" :arr="$Roles"></x-inputs.select-form>
         <x-inputs.text-field cols="8" tipo="text" nombre="email" valor="{{old('email')}}" ></x-inputs.text-field>
     </div>
 
@@ -8,7 +8,7 @@
         <x-inputs.text-field cols="3" tipo="text" nombre="ap materno" valor="{{old('ap_materno')}}"></x-inputs.text-field>
         <x-inputs.text-field cols="2" tipo="text" nombre="nombre" valor="{{old('nombre')}}"></x-inputs.text-field>
         <x-inputs.date-field cols="2" nombre="fecha nacimiento" valor="{{old('fecha_nacimiento')}}"></x-inputs.date-field>
-        <x-inputs.select-form cols="2" nombre="genero" :arr="['1'=>'Hombre', '0'=>'Mujer', '2'=>'Otro']" ></x-inputs.select-form>
+        <x-inputs.select-form cols="2" nombre="genero" :arr="['1'=>'Hombre', '0'=>'Mujer', '2'=>'Otro']" valor="-1" ></x-inputs.select-form>
     </div>
 
     <div class="form-group row">
@@ -82,4 +82,4 @@
     </div>
 
     <input type="hidden" name="id" id="id" value="0">
-    <input type="hidden" name="username" id="username" value="">
+    <input type="hidden" name="username" id="username" value="{{ old('username') }}">

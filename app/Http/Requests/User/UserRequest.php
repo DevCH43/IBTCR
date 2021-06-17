@@ -55,6 +55,8 @@ class UserRequest extends FormRequest{
             'nombre.min' => 'El :attribute requiere por lo menos de 1 caracter',
             'ap_paterno.required' => 'Se requiere el :attribute',
             'ap_paterno.min' => 'El :attribute requiere por lo menos de 1 caracter',
+            'ap_materno.required' => 'Se requiere el :attribute',
+            'ap_materno.min' => 'El :attribute requiere por lo menos de 1 caracter',
 
         ];
     }
@@ -66,6 +68,7 @@ class UserRequest extends FormRequest{
             'email' => 'Email',
             'nombre' => 'Nombre',
             'ap_paterno' => 'Apellido Paterno',
+            'ap_materno' => 'Apellido Materno',
         ];
     }
 
