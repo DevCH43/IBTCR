@@ -33,7 +33,7 @@ class User extends Authenticatable
         'username', 'email', 'password','nombre','ap_paterno','ap_materno',
         'admin','curp','emails','celulares','telefonos','fecha_nacimiento','genero',
         'root','filename','filename_png','filename_thumb','id_sistema_anterior',
-        'empresa_id','status_user',
+        'empresa_id','status_user','searchtext',
         'user_id_anterior',
         'creado_por_id'
     ];

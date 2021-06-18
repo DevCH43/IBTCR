@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -194,6 +195,10 @@ class CreateUsersTable extends Migration
 
 
 
+        DB::statement("ALTER TABLE users ADD COLUMN searchtext TSVECTOR");
+        DB::statement("UPDATE users SET searchtext = to_tsvector('spanish', coalesce(trim(ap_paterno),'') || ' ' || coalesce(trim(ap_materno),'') || ' ' || coalesce(trim(nombre),'') || ' ' || coalesce(trim(curp),'') )");
+        DB::statement("CREATE INDEX searchtext_user_gin ON users USING GIN(searchtext)");
+        DB::statement("CREATE TRIGGER ts_searchtext BEFORE INSERT OR UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('searchtext', 'pg_catalog.spanish', 'ap_paterno', 'ap_materno', 'nombre', 'curp')");
 
 
 

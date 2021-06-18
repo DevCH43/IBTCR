@@ -528,6 +528,7 @@ class ComposerStaticInit631e51c96167c477576e7e5bd0581ffb
     );
 
     public static $classMap = array (
+        'App\\Classes\\FunctionsEloquentClass' => __DIR__ . '/../..' . '/app/Classes/FunctionsEloquentClass.php',
         'App\\Classes\\GeneralFunctios' => __DIR__ . '/../..' . '/app/Classes/GeneralFunctios.php',
         'App\\Classes\\MessageAlertClass' => __DIR__ . '/../..' . '/app/Classes/MessageAlertClass.php',
         'App\\Classes\\ValidatorPassword' => __DIR__ . '/../..' . '/app/Classes/ValidatorPassword.php',
@@ -559,6 +560,7 @@ class ComposerStaticInit631e51c96167c477576e7e5bd0581ffb
         'App\\Filters\\Common\\QueryRawBuilder' => __DIR__ . '/../..' . '/app/Filters/Common/QueryRawBuilder.php',
         'App\\Filters\\Otros\\Transparencia\\ReporteTransparenciaFilter' => __DIR__ . '/../..' . '/app/Filters/Otros/Transparencia/ReporteTransparenciaFilter.php',
         'App\\Filters\\User\\UserFilter' => __DIR__ . '/../..' . '/app/Filters/User/UserFilter.php',
+        'App\\Filters\\User\\UserFilterRules' => __DIR__ . '/../..' . '/app/Filters/User/UserFilterRules.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -626,6 +628,8 @@ class ComposerStaticInit631e51c96167c477576e7e5bd0581ffb
         'App\\View\\Components\\Inputs\\LabelFormStatic' => __DIR__ . '/../..' . '/app/View/Components/Inputs/LabelFormStatic.php',
         'App\\View\\Components\\Inputs\\SelectForm' => __DIR__ . '/../..' . '/app/View/Components/Inputs/SelectForm.php',
         'App\\View\\Components\\Inputs\\TextField' => __DIR__ . '/../..' . '/app/View/Components/Inputs/TextField.php',
+        'App\\View\\Components\\Inputs\\TextFieldHrz' => __DIR__ . '/../..' . '/app/View/Components/Inputs/TextFieldHrz.php',
+        'App\\View\\Components\\Modals\\Blurred' => __DIR__ . '/../..' . '/app/View/Components/Modals/Blurred.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

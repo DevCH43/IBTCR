@@ -21,24 +21,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item {{ url()->current() == route('listaAlumnos',['Id' => 0]) ? 'active': '' }}">
-                        <a class="nav-link"
-                            href="{{ route('listaAlumnos',["Id" => 0] ) }}">
-                            <i class="nav-icon fa fa-user-graduate"></i>
-                            <span class="nav-text fadeable">Alumnos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item {{ url()->current() == route('listaProfesores',['Id' => 0]) ? 'active': '' }}">
-                        <a class="nav-link"
-                           href="{{ route('listaProfesores',["Id" => 0] ) }}">
-                            <i class="nav-icon fa fa-edit"></i>
-                            <span class="nav-text fadeable">Profesores</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item {{ url()->current() == route('listaUsuarios',['Id' => 0]) ? 'active': '' }}">
-                        <a class="nav-link" href="{{route('listaUsuarios',["Id"=>0])}}">
+                    <li class="nav-item {{ url()->current() == route('listaUsuarios') ? 'active': '' }}">
+                        <a class="nav-link" href="{{route('listaUsuarios')}}">
                             <i class="nav-icon fa fa-users"></i>
                             <span class="nav-text fadeable">Usuarios</span>
                         </a>

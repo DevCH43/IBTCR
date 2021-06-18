@@ -111,12 +111,12 @@ class InitializeUserRolesPermissionsArjiSeeder extends Seeder
         $user->user_data_social()->create();
         $F->validImage($user,'profile','profile/');
 
-        Role::create(['name'=>'DIRECTOR A','description'=>'Director A', 'color'=>'#FFFFFF', 'abreviatura'=>'dira', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'DIRECTOR B','description'=>'Director B', 'color'=>'#FFFFFF', 'abreviatura'=>'dirb',  'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'SUBDIRECTOR A','description'=>'Subdirector A', 'color'=>'#FFFFFF', 'abreviatura'=>'sbda',  'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'SUBDIRECTOR B','description'=>'Subdirector B', 'color'=>'#FFFFFF', 'abreviatura'=>'sbdb',  'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'COORDINADOR A','description'=>'Coordinador A', 'color'=>'#FFFFFF', 'abreviatura'=>'crda', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'COORDINADOR B','description'=>'Coordinador B', 'color'=>'#FFFFFF', 'abreviatura'=>'crdb',  'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'DIRECTOR A','description'=>'Director A', 'color'=>'#795548', 'abreviatura'=>'dira', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'DIRECTOR B','description'=>'Director B', 'color'=>'#8d6e63', 'abreviatura'=>'dirb',  'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'SUBDIRECTOR A','description'=>'Subdirector A', 'color'=>'#bcaaa4', 'abreviatura'=>'sbda',  'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'SUBDIRECTOR B','description'=>'Subdirector B', 'color'=>'#d7ccc8', 'abreviatura'=>'sbdb',  'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'COORDINADOR A','description'=>'Coordinador A', 'color'=>'#424242', 'abreviatura'=>'crda', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'COORDINADOR B','description'=>'Coordinador B', 'color'=>'#616161', 'abreviatura'=>'crdb',  'guard_name'=>'web'])->permissions()->attach($P7);
 
         Role::create(['name'=>'JEFE','description'=>'Jefe', 'color'=>'#FFFFFF', 'abreviatura'=>'jefe', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'SUBJEFE','description'=>'Subjefe', 'color'=>'#FFFFFF', 'abreviatura'=>'subjf', 'guard_name'=>'web'])->permissions()->attach($P7);
@@ -127,16 +127,16 @@ class InitializeUserRolesPermissionsArjiSeeder extends Seeder
         Role::create(['name'=>'ENLACE','description'=>'Enlace', 'color'=>'#FFFFFF', 'abreviatura'=>'enl', 'guard_name'=>'web'])->permissions()->attach($P7);
 
         Role::create(['name'=>'DIRECTOR','description'=>'Director', 'color'=>'#bf360c', 'abreviatura'=>'dir', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'SUBDIRECTOR','description'=>'Subdirector', 'color'=>'#FFFFFF', 'abreviatura'=>'sbdr', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'SUBDIRECTOR','description'=>'Subdirector', 'color'=>'#ff9e80', 'abreviatura'=>'sbdr', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'ALUMNO','description'=>'Alumno', 'color'=>'#558b2f', 'abreviatura'=>'alu', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'PROFESOR','description'=>'Profesor', 'color'=>'#dd2c00', 'abreviatura'=>'pro', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'COORDINADOR','description'=>'Coordinador', 'color'=>'#FFFFFF', 'abreviatura'=>'crd', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'COORDINADOR','description'=>'Coordinador', 'color'=>'#424242', 'abreviatura'=>'crd', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'ASESOR','description'=>'Asesor', 'color'=>'#880e4f', 'abreviatura'=>'ase', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'PREFECTO','description'=>'Prefecto', 'color'=>'#e65100', 'abreviatura'=>'pref', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'CONTROL ESCOLAR','description'=>'Control Escolar', 'color'=>'#ff1744', 'abreviatura'=>'ces', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'COMPRAS','description'=>'Jefe de Compras', 'color'=>'#FFFFFF', 'abreviatura'=>'comp', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'COMPRAS','description'=>'Jefe de Compras', 'color'=>'#e91e63', 'abreviatura'=>'comp', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'PROVEEDORES','description'=>'Jefe de Proveedores', 'color'=>'#FFFFFF', 'abreviatura'=>'prov', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'CAJERA','description'=>'Cajera', 'color'=>'#FFFFFF', 'abreviatura'=>'caja', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'CAJERA','description'=>'Cajera', 'color'=>'#00e676', 'abreviatura'=>'caja', 'guard_name'=>'web'])->permissions()->attach($P7);
 
         Role::create(['name'=>'PERMISOS SALIDA','description'=>'Permisos de Salida', 'color'=>'#FFFFFF', 'abreviatura'=>'psal', 'guard_name'=>'web'])->permissions()->attach($P7);
 

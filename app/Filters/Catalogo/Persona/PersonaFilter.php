@@ -18,9 +18,7 @@ class PersonaFilter  extends QueryFilter {
             'ap_materno'  => '',
             'nombre'      => '',
             'curp'         => '',
-            'cp'           => '',
-            'estado_id'    => '',
-            'municipio_id' => '',
+            'roles'       => '',
         ];
     }
 
@@ -59,13 +57,15 @@ class PersonaFilter  extends QueryFilter {
     public function ap_materno($query, $search){
         if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
         $search = strtoupper(trim($search));
-        return $query->whereRaw("ap_materno like ?", "%{$search}%");
+//        return $query->whereRaw("ap_materno like ?", "%{$search}%");
+        return $query->whereRaw("ap_materno >= ? AND ap_materno <= CONCAT(?,'Z')","{$search}");
     }
 
     public function nombre($query, $search){
         if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
         $search = strtoupper(trim($search));
-        return $query->whereRaw("nombre like ?", "%{$search}%");
+//        return $query->whereRaw("nombre like ?", "%{$search}%");
+        return $query->whereRaw("nombre >= ? AND nombre <= CONCAT(?,'Z')","{$search}");
     }
 
     public function curp($query, $search){
@@ -73,36 +73,5 @@ class PersonaFilter  extends QueryFilter {
         $search = strtoupper(trim($search));
         return $query->whereRaw("curp like ?", "%{$search}%");
     }
-
-    public function cp($query, $search){
-        if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
-        $search = strtoupper(trim($search));
-        return $query->whereHas('ubicaciones', function ($q) use ($search) {
-             $q->whereRaw("cp like ?", "%{$search}%");
-        });
-    }
-
-    public function estado_id($query, $search){
-        if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
-        $search = intval($search);
-        return $query->whereHas('ubicaciones', function ($q) use ($search) {
-             $q->where('estado_id', $search);
-        });
-    }
-
-    public function municipio_id($query, $search){
-        if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
-        $search = intval($search);
-        return $query->whereHas('ubicaciones', function ($q) use ($search) {
-             $q->where('municipio_id', $search);
-        });
-    }
-
-
-    public function DBQueryBuscarPersonas($filters){
-
-    }
-
-
 
 }

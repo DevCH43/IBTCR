@@ -60,13 +60,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('removeProfesor/{Id}/{Dato1}/{Dato2}',[ProfesorController::class,'removeItem'])->name('removeProfesor');
 
     // USUARIOS
-    Route::get('listaUsuarios/{Id}',[UserController::class,'index'])->name('listaUsuarios');
+    Route::get('listaUsuarios',[UserController::class,'index'])->name('listaUsuarios');
     Route::get('newUsuario',[UserController::class,'newItem'])->name('newUsuario');
     Route::post('createUsuario/',[UserController::class,'createItem'])->name('createUsuario');
     Route::get('editUsuario/{Id}',[UserController::class,'editItem'])->name('editUsuario');
     Route::put('updateUsuario/',[UserController::class,'updateItem'])->name('updateUsuario');
     Route::get('removeUsuario/{Id}/{Dato1}/{Dato2}',[UserController::class,'removeItem'])->name('removeUsuario');
     Route::get('getUsernameNext/{Abreviatura}',[UserController::class,'getUsernameNext'])->name('getUsernameNext');
+    Route::get('viewSearchModal',[UserController::class,'viewSearchModal'])->name('viewSearchModal');
 
 /*
     Route::get('editProfilePassword/', 'User\UserController@editProfilePassword')->name('editProfilePassword/');

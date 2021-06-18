@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Classes\FunctionsEloquentClass;
+use App\Filters\User\UserFilterRules;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserPasswordRequest;
 use App\Http\Requests\User\UserRequest;
@@ -47,21 +49,38 @@ class UserController extends Controller{
         @ini_set( 'max_execution_time', '960000' );
 
         $this->tableName = 'users';
+        $filters = new UserFilterRules();
+        $filters = $filters->filterRulesUserDB($request);
 
-        $items = User::query()->orderByDesc('id')->get()->take($this->max_reg_con);
-        // $items = User::query()->get();
+        $items = User::query()
+            ->filterBySearch($filters)
+            ->orderByDesc('id')
+            ->paginate(250);
+        $items->appends($filters)->fragment('table');
+
+//        $ld = User::query()->whereHas('user_adress',function($q){
+//            return $q->where('calle','CALLE 3');
+//        })->get();
+//        dd($ld->first()->user_adress->calle);
 
         $user = Auth::user();
+        //$items =FunctionsEloquentClass::paginate($items, $this->max_reg_con);
+        $items->appends($filters)->fragment('table');
 
         $request->session()->put('items', $items);
 
+        //dd($items);
+
         return view('layouts.User.generales._users_list',[
-            'items'       => $items,
-            'user'        => $user,
-            'tituloTabla' => 'Listado de Usuarios',
-            'newItem'     => 'newUsuario',
-            'editItem'    => 'editUsuario',
-            'removeItem'  => 'removeUsuario',
+            'items'        => $items,
+            'user'         => $user,
+            'tituloTabla'  => 'Listado de Usuarios',
+            'newItem'      => 'newUsuario',
+            'searchButton' => 'viewSearchModal',
+            'editItem'     => 'editUsuario',
+            'removeItem'   => 'removeUsuario',
+            'listItems'    => 'listaUsuarios',
+
         ]);
     }
 
@@ -145,6 +164,19 @@ class UserController extends Controller{
 
     }
 
+    protected function viewSearchModal(){
+
+        $user = Auth::user();
+        $roles = Role::query()->where('id','>',3)->orderBy('name') ->pluck('name','id')->toArray();
+
+        return view('layouts.Accesorios._searchModal',[
+            "User"        => $user,
+            "Roles"       => $roles,
+            "TituloModal" => "Buscar dato ",
+            "RouteModal"   => 'listaUsuarios',
+        ]);
+
+    }
 
 
 

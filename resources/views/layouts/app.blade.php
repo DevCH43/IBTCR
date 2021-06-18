@@ -63,6 +63,17 @@
     @endauth
 </div>
 
+<div class="modal fade" id="modalFull" data-backdrop-bg="bgc-grey-tp4" data-blur="true" tabindex="-1" role="dialog" aria-labelledby="modalFull" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content border-0 shadow radius-1">
+            @yield('ModalBlurred')
+        </div>
+    </div>
+</div>
+
+
+
+
 @livewireScripts
 
 <!-- include common vendor scripts used in demo pages -->

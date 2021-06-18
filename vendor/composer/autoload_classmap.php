@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Classes\\FunctionsEloquentClass' => $baseDir . '/app/Classes/FunctionsEloquentClass.php',
     'App\\Classes\\GeneralFunctios' => $baseDir . '/app/Classes/GeneralFunctios.php',
     'App\\Classes\\MessageAlertClass' => $baseDir . '/app/Classes/MessageAlertClass.php',
     'App\\Classes\\ValidatorPassword' => $baseDir . '/app/Classes/ValidatorPassword.php',
@@ -37,6 +38,7 @@ return array(
     'App\\Filters\\Common\\QueryRawBuilder' => $baseDir . '/app/Filters/Common/QueryRawBuilder.php',
     'App\\Filters\\Otros\\Transparencia\\ReporteTransparenciaFilter' => $baseDir . '/app/Filters/Otros/Transparencia/ReporteTransparenciaFilter.php',
     'App\\Filters\\User\\UserFilter' => $baseDir . '/app/Filters/User/UserFilter.php',
+    'App\\Filters\\User\\UserFilterRules' => $baseDir . '/app/Filters/User/UserFilterRules.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -104,6 +106,8 @@ return array(
     'App\\View\\Components\\Inputs\\LabelFormStatic' => $baseDir . '/app/View/Components/Inputs/LabelFormStatic.php',
     'App\\View\\Components\\Inputs\\SelectForm' => $baseDir . '/app/View/Components/Inputs/SelectForm.php',
     'App\\View\\Components\\Inputs\\TextField' => $baseDir . '/app/View/Components/Inputs/TextField.php',
+    'App\\View\\Components\\Inputs\\TextFieldHrz' => $baseDir . '/app/View/Components/Inputs/TextFieldHrz.php',
+    'App\\View\\Components\\Modals\\Blurred' => $baseDir . '/app/View/Components/Modals/Blurred.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/CorsService.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
