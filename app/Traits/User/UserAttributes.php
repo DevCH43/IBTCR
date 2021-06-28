@@ -2,12 +2,14 @@
 
 namespace App\Traits\User;
 
+use App\Models\Catalogos\Parentesco;
 use App\Models\User;
 use App\Models\User\Role;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Types\Integer;
 
 trait UserAttributes
 {
@@ -116,6 +118,35 @@ trait UserAttributes
         $Id = str_pad($Id,6,'0',0);
         $role = Role::query()->where('abreviatura',$Abreviatura)->first();
         return ['username'=>$role->abreviatura.$Id,'role_id'=>$role->id];
+    }
+
+    public static function findByIdUserAnterior($IdUserAnterior){
+        return static::query()->where('user_id_anterior',$IdUserAnterior)->first();
+    }
+
+    public function getParentesco($Parentesco_Id) {
+//        return "{$this->ap_paterno} {$this->ap_materno} {$this->nombre}";
+        $Par = Parentesco::find($Parentesco_Id);
+        if ( is_null($Par) == false ){
+            switch ($this->genero){
+                case 0:
+                    return $Par->parentesco_femenino;
+                    break;
+                case 1:
+                    return $Par->parentesco_masculino;
+                    break;
+                default:
+                    return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+    public function getTutor($Tutor_Id) {
+//        return "{$this->ap_paterno} {$this->ap_materno} {$this->nombre}";
+        $Tutor = self::find($Tutor_Id);
+        return $Tutor ? $Tutor->FullName : '';
     }
 
 

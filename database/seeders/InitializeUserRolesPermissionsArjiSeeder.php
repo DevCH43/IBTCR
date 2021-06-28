@@ -121,9 +121,9 @@ class InitializeUserRolesPermissionsArjiSeeder extends Seeder
         Role::create(['name'=>'JEFE','description'=>'Jefe', 'color'=>'#FFFFFF', 'abreviatura'=>'jefe', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'SUBJEFE','description'=>'Subjefe', 'color'=>'#FFFFFF', 'abreviatura'=>'subjf', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'REPORTES','description'=>'Reportes', 'color'=>'#FFFFFF', 'abreviatura'=>'rpt', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'CAPTURISTA A','description'=>'Capturista A', 'color'=>'#FFFFFF', 'abreviatura'=>'capa', 'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'CAPTURISTA B','description'=>'Capturista B', 'color'=>'#FFFFFF', 'abreviatura'=>'capb',   'guard_name'=>'web'])->permissions()->attach($P7);
-        Role::create(['name'=>'CAPTURISTA C','description'=>'Capturista C', 'color'=>'#FFFFFF',  'abreviatura'=>'capc', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'CAPTURISTA A','description'=>'Capturista A', 'color'=>'#3f51b5', 'abreviatura'=>'capa', 'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'CAPTURISTA B','description'=>'Capturista B', 'color'=>'#4db6ac', 'abreviatura'=>'capb',   'guard_name'=>'web'])->permissions()->attach($P7);
+        Role::create(['name'=>'CAPTURISTA C','description'=>'Capturista C', 'color'=>'#f44336',  'abreviatura'=>'capc', 'guard_name'=>'web'])->permissions()->attach($P7);
         Role::create(['name'=>'ENLACE','description'=>'Enlace', 'color'=>'#FFFFFF', 'abreviatura'=>'enl', 'guard_name'=>'web'])->permissions()->attach($P7);
 
         Role::create(['name'=>'DIRECTOR','description'=>'Director', 'color'=>'#bf360c', 'abreviatura'=>'dir', 'guard_name'=>'web'])->permissions()->attach($P7);

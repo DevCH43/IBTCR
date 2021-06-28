@@ -41,7 +41,7 @@ class Familia extends Model{
     }
 
     public function familiares(){
-        return $this->belongsToMany(User::class,'familia_familiar_user','familia_id','familiar_id')
+        return $this->belongsToMany(User::class,'familia_familiar_user','alumno_id','familiar_id')
             ->withPivot('id','familia_id','alumno_id','tutor_id','familiar_id','alumno_parentesco_id','familiar_parentesco_id','idfamilia', 'empresa_id', 'creado_por_id');
     }
 

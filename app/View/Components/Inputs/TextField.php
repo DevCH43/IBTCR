@@ -9,7 +9,9 @@ class TextField extends Component{
     public $tipo;
     public $nombre;
     public $cols;
+    public $cols1;
     public $class;
+    public $class1;
     public $valor;
     public $deshabilitado;
     public $sololectura;
@@ -18,15 +20,17 @@ class TextField extends Component{
      *
      * @return void
      */
-    public function __construct(string $tipo = null, string $nombre = null, string $cols = null, string $class = null, string $valor = null, bool $deshabilitado = null, bool $sololectura = null){
+    public function __construct(string $tipo = null, string $nombre = null, string $cols = null, string $cols1 = null, string $class = null, string $class1 = null, string $valor = null, bool $deshabilitado = null, bool $sololectura = null){
 
-        $this->tipo = $tipo ?? 'text';
-        $this->nombre = $nombre ?? 'TextField_'.time();
-        $this->cols = $cols ?? 2;
-        $this->class = $class ?? '';
-        $this->valor = $valor ?? '';
+        $this->tipo          = $tipo ?? 'text';
+        $this->nombre        = $nombre ?? 'TextField_'.time();
+        $this->cols          = $cols ?? 2;
+        $this->cols1         = $cols1 ?? null;
+        $this->class         = $class ?? '';
+        $this->class1        = $class1 ?? '';
+        $this->valor         = $valor ?? '';
         $this->deshabilitado = $deshabilitado ?? '';
-        $this->sololectura = $sololectura ?? '';
+        $this->sololectura   = $sololectura ?? '';
 
 
     }

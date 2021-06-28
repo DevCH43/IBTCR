@@ -39,29 +39,32 @@ class ImportUsers04Seeder extends Seeder{
             try{
 
                 $dupla = preg_split("/\t/", $json_data[$x], -1, PREG_SPLIT_NO_EMPTY);
-                $arr = str_getcsv($dupla[0],'|');
 
-                // dd($arr);
+                if ( $dupla ) {
 
-                $dataAdress = [
-                    'calle' => $arr[12],
-                    'num_ext' => $arr[13],
-                    'num_int' => $arr[14],
-                    'colonia' => $arr[15],
-                    'localidad' => $arr[16],
-                    'municipio' => $arr[18],
-                    'estado' => $arr[19],
-                    'cp' => $arr[17],
-                ];
-                $dataExtend = [
-                    'ocupacion'=> $arr[20],
-                    'lugar_nacimiento' => $arr[21],
-                ];
+                    $arr = str_getcsv($dupla[0], '|');
 
-                //dd($dataAdress);
+                    // dd($arr);
 
-                User::agregarConSeeder($arr[0],$arr[1],$arr[2],$arr[3],$arr[4],$arr[5],$arr[6],$arr[7],$arr[8],$arr[9],$empresa_id,$creado_por_id,$arr[10],$arr[11],$dataAdress,$dataExtend);
+                    $dataAdress = [
+                        'calle' => $arr[12],
+                        'num_ext' => $arr[13],
+                        'num_int' => $arr[14],
+                        'colonia' => $arr[15],
+                        'localidad' => $arr[16],
+                        'municipio' => $arr[18],
+                        'estado' => $arr[19],
+                        'cp' => $arr[17],
+                    ];
+                    $dataExtend = [
+                        'ocupacion' => $arr[20],
+                        'lugar_nacimiento' => $arr[21],
+                    ];
 
+                    //dd($dataAdress);
+
+                    User::agregarConSeeder($arr[0], $arr[1], $arr[2], $arr[3], $arr[4], $arr[5], $arr[6], $arr[7], $arr[8], $arr[9], $empresa_id, $creado_por_id, $arr[10], $arr[11], $dataAdress, $dataExtend);
+                }
             }catch (QueryException $e){
                 Log::alert($e->getMessage() ." => ". $arr);
                 continue;

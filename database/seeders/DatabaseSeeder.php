@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ImportUsers03Seeder::class);
         $this->call(ImportUsers04Seeder::class);
         $this->call(ImportUsers05Seeder::class);
+        $this->call(ImportFamiliasArjiSeeder::class);
 
     }
 
