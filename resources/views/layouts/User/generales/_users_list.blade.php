@@ -4,6 +4,7 @@
     @slot('user',$user)
     @slot('newItem',$newItem ?? null)
     @slot('searchButton', $searchButton ?? '')
+    @slot('excelButton', $excelButton ?? '')
     @slot('editItem',$editItem)
     @slot('removeItem',$removeItem)
     @slot('listItems',$listItems ?? '')

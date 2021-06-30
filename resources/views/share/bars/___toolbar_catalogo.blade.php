@@ -9,7 +9,11 @@
             <i class="fa fa-search w-3"></i>
         </a>
     @endif
-
+    @if( ! is_null($excelButton))
+        <a href="{{ route($excelButton) }}" class="btn btn-white btn-lighter-white btn-h-red btn-a-info">
+            <i class="fa fa-file-excel w-3"></i>
+        </a>
+    @endif
     <form method="get" action="{{route($listItems)}}" class="form-inline frmSearchInList float-right"  data-toggle="tooltip" title="Buscar...">
         <div class="col-auto mr-auto">
             <div class="app-search">

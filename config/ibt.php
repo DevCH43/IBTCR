@@ -26,15 +26,12 @@ return [
 
     'archivos'=>[
 
-        'fmt_lista_personas'  => 'fmt_lista_personas.xls',
-        'fmt_lista_usuarios'  => 'fmt_lista_usuarios.xls',
-        'fmt_lista_denuncias' => 'fmt_lista_denuncias.xls',
-        'fmt_lista_catalogos' => 'fmt_lista_catalogos.xls',
-        'fmt_lista_ina'       => 'fmt_lista_inai.xls',
-        'fmt_lista_padprov'   => 'fmt_lista_padprov.xls',
-        'icono_video'         => 'icon-video.png',
-        'archivos TXT, CVS'   => 'archivo.txt',
-        'archivos JSON'       => 'archivo.json',
+        'fmt_lista_usuarios'  => 'fmt_lista_usuarios.xlsx',
+        'fmt_lista_catalogos' => 'fmt_lista_catalogos.xlsx',
+        'icono_video_png'         => 'icon-video.png',
+        'archivos_txt'   => 'archivo.txt',
+        'archivos_json'       => 'archivo.json',
+        'archivos_imagen_jpg'     => 'archivo.jpg',
 
     ],
 

@@ -4,6 +4,8 @@ use App\Http\Controllers\Catalogos\Alumnos\AlumnosController;
 use App\Http\Controllers\Catalogos\Profesores\ProfesorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Storage\ProfileStorageController;
+use App\Http\Controllers\Storage\StorageExternalFilesController;
+use App\Http\Controllers\Storage\StorageListaCatalogosController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +71,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('getUsernameNext/{Abreviatura}',[UserController::class,'getUsernameNext'])->name('getUsernameNext');
     Route::get('viewSearchModal',[UserController::class,'viewSearchModal'])->name('viewSearchModal');
 
+
+    // ARCHIVOS
+
+    Route::get('archivos_config',[StorageExternalFilesController::class,'archivos_config'])->name('archivos_config');
+    Route::post('subirArchivoBase', [StorageExternalFilesController::class,'subirArchivoBase'])->name('subirArchivoBase');
+    Route::get('quitarArchivoBase/{driver}/{archivo}', [StorageExternalFilesController::class,'quitarArchivoBase'])->name('quitarArchivoBase');
+
+    // MS EXCEL
+
+    Route::get('listUsuariosToXlsx',[StorageListaCatalogosController::class,'listUsuariosToXlsx'])->name('listUsuariosToXlsx');
+
+
+
 /*
     Route::get('editProfilePassword/', 'User\UserController@editProfilePassword')->name('editProfilePassword/');
     Route::put('updateProfilePassword/', 'Catalogos\User\UserDataController@updateProfilePassword')->name('updateProfilePassword/');
@@ -76,5 +91,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('subirFotoProfile/', 'Storage\StorageProfileController@subirArchivoProfile')->name('subirArchivoProfile/');
     Route::get('quitarFotoProfile/', 'Storage\StorageProfileController@quitarArchivoProfile')->name('quitarArchivoProfile/');
 */
+
+
+
 
 });

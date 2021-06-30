@@ -28,6 +28,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-item {{ url()->current() == route('archivos_config') ? 'active': '' }}">
+                        <a class="nav-link" href="{{route('archivos_config')}}">
+                            <i class="nav-icon fa fa-file"></i>
+                            <span class="nav-text fadeable">Archivos</span>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
 

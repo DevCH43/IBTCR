@@ -12,14 +12,18 @@
         "fideloper/proxy": "^4.4.1",
         "fruitcake/laravel-cors": "^2.0.4",
         "guzzlehttp/guzzle": "^7.3.0",
-        "intervention/image": "^2.5.1",
+        "intervention/image": "^2.5",
         "laravel/framework": "^8.47.0",
         "laravel/tinker": "^2.6.1",
         "laravel/ui": "^3.3.0",
         "laravelcollective/html": "^6.2.1",
         "livewire/livewire": "^2.5.1",
         "nunomaduro/collision": "^5.4",
-        "spatie/laravel-permission": "^4.2.0"
+        "opsway/doctrine-dbal-postgresql": "^0.8.1",
+        "phpoffice/phpspreadsheet": "^1.18",
+        "setasign/fpdf": "^1.8",
+        "spatie/laravel-permission": "^4.2.0",
+        "yajra/laravel-datatables-oracle": "^9.18"
     },
     "require-dev": {
         "facade/ignition": "^2.10.2",

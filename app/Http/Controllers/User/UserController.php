@@ -77,6 +77,7 @@ class UserController extends Controller{
             'tituloTabla'  => 'Listado de Usuarios',
             'newItem'      => 'newUsuario',
             'searchButton' => 'viewSearchModal',
+            'excelButton'  => 'listUsuariosToXlsx',
             'editItem'     => 'editUsuario',
             'removeItem'   => 'removeUsuario',
             'listItems'    => 'listaUsuarios',
