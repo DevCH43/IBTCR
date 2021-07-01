@@ -21,8 +21,14 @@ class StorageListaCatalogosController extends Controller{
 
     public function listUsuariosToXlsx(Request $request){
         ini_set('max_execution_time', 900);
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
 //        $data = $request->only(['search','items']);
         $Items = $request->session()->get('items');
+
+        var_dump(extension_loaded('zip'));
 
         $C0 = 6;
         $C = $C0;
@@ -44,6 +50,7 @@ class StorageListaCatalogosController extends Controller{
             foreach ($Items as $item) {
 
                 //dd($item->id);
+
                 $item = User::find($item->id);
 
                 $fechaEjecucion = Carbon::parse($item->fecha_nacimiento)->format('d-m-Y'); //Carbon::createFromFormat('d-m-Y', $item->fecha_nacimiento);
