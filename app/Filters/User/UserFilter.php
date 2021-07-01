@@ -12,15 +12,16 @@ class UserFilter extends QueryFilter {
 
     public function rules(): array{
         return [
-            'IdP'               => '',
+            'IdP'              => '',
             'search'           => '',
             'ap_paterno'       => '',
             'ap_materno'       => '',
             'nombre'           => '',
             'curp'             => '',
-            'fecha_inicial' => '',
-            'fecha_final' => '',
+            'fecha_inicial'    => '',
+            'fecha_final'      => '',
             'role_id'          => '',
+            'user_id_anterior' => '',
         ];
     }
 
@@ -99,5 +100,9 @@ class UserFilter extends QueryFilter {
         });
     }
 
+    public function user_id_anterior($query, $search){
+        if (is_null($search) || empty ($search) || trim($search) == "") {return $query;}
+        return $query->where("user_id_anterior",$search);
+    }
 
 }

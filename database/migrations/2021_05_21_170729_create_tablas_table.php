@@ -261,6 +261,11 @@ class CreateTablasTable extends Migration
 
         });
 
+        DB::statement("ALTER TABLE familias ADD COLUMN searchtext TSVECTOR");
+        DB::statement("UPDATE familias SET searchtext = to_tsvector('spanish', coalesce(trim(familia),'') || ' ' || coalesce(trim(emails),'') )");
+        DB::statement("CREATE INDEX searchtext_familia_gin ON familias USING GIN(searchtext)");
+        DB::statement("CREATE TRIGGER ts_searchtext BEFORE INSERT OR UPDATE ON familias FOR EACH ROW EXECUTE PROCEDURE tsvector_update_trigger('searchtext', 'pg_catalog.spanish', 'familia', 'emails')");
+
         //Define la Familia
         Schema::create($tableRelaciones['familia_familiar_user'], function (Blueprint $table) use ($tableUsers, $tableCatalogos){
             $table->increments('id');

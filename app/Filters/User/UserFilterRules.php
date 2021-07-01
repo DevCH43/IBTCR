@@ -96,15 +96,16 @@ class UserFilterRules{
     }
 
     public function filterRulesUserDB(Request $request){
-        $data = $request->all(['Id','search','IdP','ap_paterno','ap_materno','nombre','cp','curp','curp10','calle','num_ext','localidad','estado_id','municipio_id','fecha_inicial','fecha_final','fecha_nacimiento','role_id']);
+        $data = $request->all(['Id','search','IdP','ap_paterno','ap_materno','nombre','cp','curp','curp10','calle','num_ext','localidad','estado_id','municipio_id','fecha_inicial','fecha_final','fecha_nacimiento','role_id','user_id_anterior']);
 
         $fi = !is_null($data['fecha_inicial']) ? Carbon::createFromFormat('Y-m-d',$data['fecha_inicial'])->toDateString() : null ;
         $ff = !is_null($data['fecha_final'])   ? Carbon::createFromFormat('Y-m-d',$data['fecha_final'])->toDateString()   : null ;
         $fn = !is_null($data['fecha_nacimiento'])   ? Carbon::createFromFormat('Y-m-d',$data['fecha_nacimiento'])->toDateString()   : null ;
 
-        $data['IdP']        = $data['IdP']==null    ? "" : intval($data['IdP']);
-        $data['search']     = $data['search']==null ? "" : $data['search'];
-        $data['role_id']     = $data['role_id']==null ? "" : $data['role_id'];
+        $data['IdP']              = $data['IdP']==null    ? "" : intval($data['IdP']);
+        $data['search']           = $data['search']==null ? "" : $data['search'];
+        $data['role_id']          = $data['role_id']==null ? "" : $data['role_id'];
+        $data['user_id_anterior'] = $data['user_id_anterior']==null ? "" : $data['user_id_anterior'];
 
         $data['ap_paterno'] = $data['ap_paterno']==null || $data['ap_paterno']==""  ? "" : strtoupper(trim($data['ap_paterno']));
         $data['ap_materno'] = $data['ap_materno']==null || $data['ap_materno']==""  ? "" : strtoupper(trim($data['ap_materno']));
@@ -123,24 +124,25 @@ class UserFilterRules{
         $data['municipio_id'] = $data['municipio_id']=="0" || $data['municipio_id']==null ? "" : intval($data['municipio_id']);
 
         $filters = [
-            'Id'            => $data['Id'],
-            'IdP'           => $data['IdP'],
-            'search'        => $data['search'],
-            'ap_paterno'    => $data['ap_paterno'],
-            'ap_materno'    => $data['ap_materno'],
-            'nombre'        => $data['nombre'],
-            'curp'          => $data['curp'],
-            'curp10'        => $data['curp10'],
-            'fecha_inicial' => $data['fecha_inicial'],
-            'fecha_final'   => $data['fecha_final'],
+            'Id'               => $data['Id'],
+            'IdP'              => $data['IdP'],
+            'search'           => $data['search'],
+            'ap_paterno'       => $data['ap_paterno'],
+            'ap_materno'       => $data['ap_materno'],
+            'nombre'           => $data['nombre'],
+            'curp'             => $data['curp'],
+            'curp10'           => $data['curp10'],
+            'fecha_inicial'    => $data['fecha_inicial'],
+            'fecha_final'      => $data['fecha_final'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
-            'cp'            => $data['cp'],
-            'calle'         => $data['calle'],
-            'num_ext'       => $data['num_ext'],
-            'localidad'     => $data['localidad'],
-            'estado_id'     => $data['estado_id'],
-            'municipio_id'  => $data['municipio_id'],
-            'role_id'       => $data['role_id'],
+            'cp'               => $data['cp'],
+            'calle'            => $data['calle'],
+            'num_ext'          => $data['num_ext'],
+            'localidad'        => $data['localidad'],
+            'estado_id'        => $data['estado_id'],
+            'municipio_id'     => $data['municipio_id'],
+            'role_id'          => $data['role_id'],
+            'user_id_anterior' => $data['user_id_anterior'],
         ];
         return $filters;
     }

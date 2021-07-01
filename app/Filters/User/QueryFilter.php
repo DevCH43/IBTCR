@@ -39,4 +39,5 @@ abstract class QueryFilter
     {
         return $this->valid;
     }
+
 }

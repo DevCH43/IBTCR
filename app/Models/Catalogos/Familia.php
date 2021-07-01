@@ -2,6 +2,7 @@
 
 namespace App\Models\Catalogos;
 
+use App\Filters\Catalogo\Familia\FamiliaFilter;
 use App\Models\Relaciones\FamiliaAlumnoFamiliar;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,9 +20,14 @@ class Familia extends Model{
         'id',
         'familia', 'observaciones_control_escolar', 'observaciones_pagos', 'convenios', 'emails',
         'estatus', 'valid_for_admin', 'idfamilia',
-        'empresa_id',
+        'empresa_id','searchtext',
         'creado_por_id'
     ];
+
+    public function scopeFilterBySearch($query, $filters){
+        return (new FamiliaFilter())->applyTo($query, $filters);
+    }
+
 
     public function Empresa(){
         return $this->hasOne(Empresa::class,'id','empresa_id');

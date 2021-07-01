@@ -63,3 +63,10 @@
                     </select>
                 </div>
             </div>
+
+            <div class="form-row has-error mb-1">
+                <label for = "user_id_anterior" class="col-md-4 col-form-label">Id Anterior</label>
+                <div class="col-md-8">
+                    <input type="text" name="user_id_anterior" id="user_id_anterior" value="{{ old('user_id_anterior') }}" class="form-control" />
+                </div>
+            </div>

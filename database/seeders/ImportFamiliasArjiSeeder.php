@@ -64,10 +64,10 @@ class ImportFamiliasArjiSeeder extends Seeder
 
                 }
             }catch (QueryException $e){
-                Log::alert($e->getMessage() ." => ". $arr);
+                Log::alert($e->getMessage() ." => ". $dupla[0]);
                 continue;
             }catch (\Whoops\Exception\ErrorException $e){
-                Log::alert($e->getMessage() ." => ". $arr);
+                Log::alert($e->getMessage() ." => ". $dupla[0]);
                 continue;
             }
         }

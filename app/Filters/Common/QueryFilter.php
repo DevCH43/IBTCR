@@ -5,10 +5,11 @@ namespace App\Filters\Common;
 
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 abstract class QueryFilter{
 
-    protected $valid;
+    protected $valid = [];
 
     abstract public function rules(): array;
 
@@ -23,7 +24,6 @@ abstract class QueryFilter{
     }
 
     protected function applyFilter($query, $name, $value){
-
         if (method_exists($this, $name)) {
             $this->$name($query, $value);
         } else {
@@ -31,7 +31,8 @@ abstract class QueryFilter{
         }
     }
 
-    public function valid(){
+    public function valid()
+    {
         return $this->valid;
     }
 

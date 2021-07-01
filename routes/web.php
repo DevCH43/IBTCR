@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Catalogos\Alumnos\AlumnosController;
+use App\Http\Controllers\Catalogos\Familias\FamiliasController;
 use App\Http\Controllers\Catalogos\Profesores\ProfesorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Storage\ProfileStorageController;
@@ -61,6 +62,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('editProfesor/{Id}',[ProfesorController::class,'editItem'])->name('editProfesor');
     Route::get('removeProfesor/{Id}/{Dato1}/{Dato2}',[ProfesorController::class,'removeItem'])->name('removeProfesor');
 
+    // fAMILIAS
+    Route::get('listaFamilias',[FamiliasController::class,'index'])->name('listaFamilias');
+    Route::get('newFamilia',[FamiliasController::class,'newItem'])->name('newFamilia');
+    Route::post('createFamilia/',[FamiliasController::class,'createItem'])->name('createFamilia');
+    Route::get('editFamilia/{Id}',[FamiliasController::class,'editItem'])->name('editFamilia');
+    Route::put('updateFamilia/',[FamiliasController::class,'updateItem'])->name('updateFamilia');
+    Route::get('removeFamilia/{Id}/{Dato1}/{Dato2}',[FamiliasController::class,'removeItem'])->name('removeFamilia');
+    Route::get('getFamiliasnameNext/{Abreviatura}',[FamiliasController::class,'getFamiliasnameNext'])->name('getFamiliasnameNext');
+    Route::get('viewSearchModal',[FamiliasController::class,'viewSearchModal'])->name('viewSearchModal');
+
     // USUARIOS
     Route::get('listaUsuarios',[UserController::class,'index'])->name('listaUsuarios');
     Route::get('newUsuario',[UserController::class,'newItem'])->name('newUsuario');
@@ -81,6 +92,7 @@ Route::group(['middleware' => 'auth'], function () {
     // MS EXCEL
 
     Route::get('listUsuariosToXlsx',[StorageListaCatalogosController::class,'listUsuariosToXlsx'])->name('listUsuariosToXlsx');
+    Route::get('listFamiliasToXlsx',[StorageListaCatalogosController::class,'listFamiliasToXlsx'])->name('listFamiliasToXlsx');
 
 
 
