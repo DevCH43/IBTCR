@@ -108,8 +108,6 @@ GARCIA HERRERA,,,,nellyherrerabuendia@gmail.com,1243|7865|7863,3,7863|7864,2,786
 CERVANTES HERNANDEZ,,,,matvad.15@gmail.com,1244|7891|7908,3,7908|7907,2,7908
 CERVANTES HERNANDEZ,,,,matvad.15@gmail.com,1244|7890|7908,3,7908|7907,2,7908
 MENDOZA RODRIGUEZ,,,,anny545_1@hotmail.com,1216|7870|7804,3,7804|7809,2,7804
-PRIEGO TRUJILLO,,,,hectorpriegou@gmail.com,1025|7314|4897,3,4806|4806,2,4806
-LOPEZ PEDRERO,,,,apedrero_11@hotmail.com,1172|7888|7598,3,7598|7599,2,7598
 ARANDA OLVERA,,,,maraga49@hotmail.com,1218|7742|7743,3,7744|7744,2,7744
 ARIAS PEDRERO,,,,maichapedrero@gmail.com,1084|6913|6914,3,6914|7264,2,6914
 ARIAS VILLAMAYOR,,,,dr_arias.hernandez@hotmail.com,989|6947|4665,3,4666|4666,2,4666
@@ -217,7 +215,7 @@ GARCIA LEUTIGER,,,,jmgarcia@corporativo-inasa.com.mx;cheperreche@hotmail.com,730
 GARCIA MIGUEL,,,,miguel.alicia@gmail.com,990|4668|4670,3,4670|4667,2,4670
 GOMEZ VERA,,,,deni_vr@live.com.mx,1180|7608|7609,3,7609|7610,2,7609
 GUTIERREZ CANTO,,,,nereydacc@hotmail.com,573|4850|3273,3,3274|3274,2,3274
-GUTIERREZ RODRIGUEZ,,,,margara_frm@hotmail.com,986|4655|4656,3,1465|4654,2,1465
+GUTIERREZ RODRIGUEZ,,,,margara_frm@hotmail.com,986|4655|1465,3,1465|4654,2,1465
 LEON VAZQUEZ,,,,beatrizvazquezs@gmail.com,1165|7539|7538,3,7538|7537,2,7538
 LIMONCHI ARAIZA,,,,ramonlm18@yahoo.com.mx,587|4865|3246,3,3247|3247,2,3247
 MEJIA CANABAL,,,,armando_mejia2000@yahoo.com.mx,999|4697|4699,3,4698|4698,2,4698
@@ -402,7 +400,7 @@ RABELO JIMENEZ,,,,aurelianorabelo@yahoo.com.mx,683|1639|3060,3,3061|3061,2,3061
 RODRIGUEZ ESCALONA,,,,roxesc@yahoo.com;elmaurimx@yahoo.com.mx;sayda57-19@hotmail.com;mauricio_rodriguez_c@hotmail.com,677|4793|3072,3,3073|3073,2,3073
 ROVIROSA HERNANDEZ,,,,crysrovi@hotmail.com;cucorovirosa@gmail.com,551|1667|3316,3,3317|3317,2,3317
 SALAZAR JIMENEZ,,,,voyuky@hotmail.com,745|1644|2941,3,2941|2942,2,2941
-SARAO LOPEZ,,,,betyllopez@hotmail.com,563|4794|3293,3,3293
+SARAO LOPEZ,,,,betyllopez@hotmail.com,563|4794|1398,3,1398
 SUAREZ NOGUERA,,,,erikanm@hotmail.com;suarez_jorge25@hotmail.com,553|1668|3312,3,3313|3313,2,3313
 TARACENA MADRAZO,,,,mapimadrazo@gmail.com,660|1620|3106,3,3106|3107,2,3106
 TORRES MONTERO,,,,missklau4u@hotmail.com;rene.torres@imss.gob.mx,666|1669|3094,3,3095|3095,2,3095
@@ -707,7 +705,7 @@ ROVIROSA BUENDIA,,,,rovirosa_torres@hotmail.com,428|1919|3549,3,3550|3550,2,3550
 RUIZ SOTO,,,,c7163@prodigy.net.mx;gabysoto38@prodygy.net.mx,203|1877|3994,3,3995|3995,2,3995
 SALAZAR BASTO,,,,sagepolietilenos@hotmail.com;bastoeliza@hotmail.com;enrique@sage.com.mx,427|1854|3551,3,3552|3552,2,3552
 SANCHEZ ALDECOA,,,,raldecoa77@hotmail.com,430|1900|3545,3,3546|3546,2,3546
-SARAO LOPEZ,,,,betyllopez@hotmail.com,563|1878|3293,3,3293
+SARAO LOPEZ,,,,betyllopez@hotmail.com,563|1878|1398,3,1398
 SUAREZ RODRIGUEZ,,,,vivirora@hotmail.com;chavosuarez@gmail.com,321|1922|3756,3,3757|3757,2,3757
 AGUILAR CARRERA,,,,ruben.aguilar@imsdelgolfo.com.mx;crystell03@live.com.mx,374|1975|1345,3,3654|3654,2,3654
 ANDRADE POLA,,,,elviradeandrade@hotmail.com,383|1926|3636,3,3637|3637,2,3637
@@ -836,7 +834,7 @@ PRIEGO AZCUAGA,,,,lilianatabasco@hotmail.com,309|2047|3780,3,3780|3781,2,3780
 RABELO MARQUEZ,,,,hernan_rabelo_gomez@hotmail.com;pilyrabe@hotmail.com,325|2022|3748,3,3749|3749,2,3749
 REVUELTAS FICACHI,,,,ntficachi@hotmail.com,106|2078|4176,3,4177|4177,2,4177
 SANCHEZ MURILLO,,,,breck73@hotmail.com;letyy74@hotmail.com,466|2048|3477,3,3478|3478,2,3478
-SARAO LOPEZ,,,,betyllopez@hotmail.com,563|2049|3293,3,3293
+SARAO LOPEZ,,,,betyllopez@hotmail.com,563|2049|1398,3,1398
 AGUILAR ANTONIO,,,,peje16@hotmail.com,1156|7427|7469,3,7505|7505,2,7505
 BARRAGAN ONGAY,,,,jorgebarragan@jorgebarragan.com;susy_ongay@hotmail.com,271|2144|3855,3,3856|3856,2,3856
 BRAVO CALDERON,,,,acava64@hotmail.com;cids2009@hotmail.com,265|2114|3867,3,3868|3868,2,3868
@@ -961,3 +959,5 @@ PADILLA OCAÑA,,,,addy_145@hotmail.com,1247|7881|7902,3,7902|7906,2,7902
 MARTINEZ MENA,,,,,1253|7880|7896,3,7896|7895,2,7896
 ARMENGOL RABELO ,,,,irisfabiolarabelovelasco@gmail.com,1254|7879|7894,3,7894|7893,2,7894
 ISLAS  MALDONADO,,,,religuer@gmail.com,1255|7909|7910,3,7911|7911,2,7911
+SUAREZ TEJEDA,,,,religuer@gmail.com,1201|7639|3175,3,3175|7707,2,3175
+FLORES CARRERA,,,,religuer@gmail.com,1227|7776|7788,3,7788|7800,2,7788
