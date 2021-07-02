@@ -58,19 +58,24 @@ class Familia extends Model{
         $empresa_id,
         $creado_por_id
     ){
-
-        return static::create([
-            'familia'                       => $familia,
-            'observaciones_control_escolar' => $observaciones_control_escolar,
-            'observaciones_pagos'           => $observaciones_pagos,
-            'convenios'                     => $convenios,
-            'emails'                        => $emails,
-            'estatus'                       => $estatus,
-            'valid_for_admin'               => $valid_for_admin,
-            'idfamilia'                     => $idfamilia,
-            'empresa_id'                    => $empresa_id,
-            'creado_por_id'                 => $creado_por_id,
-        ]);
+        $Fam = static::query()->where('idfamilia',$idfamilia)->first();
+        if ( ! $Fam  ) {
+            //dd($Fam->count() < 0 );
+            return static::create([
+                'familia' => $familia,
+                'observaciones_control_escolar' => $observaciones_control_escolar,
+                'observaciones_pagos' => $observaciones_pagos,
+                'convenios' => $convenios,
+                'emails' => $emails,
+                'estatus' => $estatus,
+                'valid_for_admin' => $valid_for_admin,
+                'idfamilia' => $idfamilia,
+                'empresa_id' => $empresa_id,
+                'creado_por_id' => $creado_por_id,
+            ]);
+        }else{
+            return $Fam;
+        }
     }
 
 }

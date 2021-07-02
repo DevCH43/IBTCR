@@ -114,12 +114,12 @@ class User extends Authenticatable
 
     public function familias(){
         return $this->belongsToMany(Familia::class,'familia_familiar_user','alumno_id','familia_id')
-            ->withPivot('id','familia_id','alumno_id','familiar_id','alumno_parentesco_id','familiar_parentesco_id');
+            ->withPivot('id','familia_id','alumno_id','tutor_id','familiar_id','alumno_parentesco_id','familiar_parentesco_id','idfamilia', 'empresa_id', 'creado_por_id');
     }
 
     public function familiares(){
         return $this->belongsToMany(User::class,'familia_familiar_user','alumno_id','familiar_id')
-            ->withPivot('id','familia_id','alumno_id','familiar_id','alumno_parentesco_id','familiar_parentesco_id');
+            ->withPivot('id','familia_id','alumno_id','tutor_id','familiar_id','alumno_parentesco_id','familiar_parentesco_id','idfamilia', 'empresa_id', 'creado_por_id');
     }
 
     public function sendPasswordResetNotification($token){

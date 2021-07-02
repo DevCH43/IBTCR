@@ -31,22 +31,22 @@
             <thead class="brc-transparent">
             <tr class="bgc-green-d2 text-white">
                 <th>
+                    Alumno
+                </th>
+                <th>
                     Parentesco
                 </th>
                 <th>
                     Familiar
                 </th>
-                <th>
-                    Tutor
-                </th>
             </tr>
             </thead>
             <tbody>
-            @foreach($item->familiares as $Fam)
+            @foreach($item->alumnos as $Fam)
                 <tr class="bgc-h-yellow-l3 w-100">
-                    <td >{{ $Fam->getParentesco($Fam->pivot->familiar_parentesco_id) }}</td>
                     <td >{{$Fam->FullName}}</td>
-                    <td >{{ $Fam->getTutor($Fam->pivot->tutor_id) }}</td>
+                    <td >{{ $Fam->getParentesco($Fam->pivot->familiar_parentesco_id) }}</td>
+                    <td >{{ $Fam->getTutor($Fam->pivot->familiar_id) }}</td>
                 </tr>
             @endforeach
             </tbody>

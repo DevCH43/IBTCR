@@ -144,7 +144,6 @@ trait UserAttributes
     }
 
     public function getTutor($Tutor_Id) {
-//        return "{$this->ap_paterno} {$this->ap_materno} {$this->nombre}";
         $Tutor = self::find($Tutor_Id);
         return $Tutor ? $Tutor->FullName : '';
     }
