@@ -29,7 +29,7 @@ class StorageListaCatalogosController extends Controller{
 //        $data = $request->only(['search','items']);
         $Items = $request->session()->get('items');
 
-        var_dump(extension_loaded('zip'));
+        //var_dump(extension_loaded('zip'));
 
         $C0 = 6;
         $C = $C0;
@@ -141,7 +141,7 @@ class StorageListaCatalogosController extends Controller{
 //        $data = $request->only(['search','items']);
         $Items = $request->session()->get('items');
 
-        var_dump(extension_loaded('zip'));
+        //var_dump(extension_loaded('zip'));
 
         $C0 = 6;
         $C = $C0;
