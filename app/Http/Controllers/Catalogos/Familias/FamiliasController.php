@@ -163,6 +163,29 @@ class FamiliasController extends Controller{
 
     }
 
+    //    Attach miembro de la familia
+    protected function attachMemberItem(FamiliaRequest $request) {
+        //dd($request);
+        $Familia = $request->manage();
+        if (!isset($Familia)) {
+            abort(404);
+        }
+        dd($Familia);
+        $user = Auth::user();
+        session(['msg' => 'value']);
+        return view('layouts.Catalogos.Familias._familia_edit',[
+            "item"     => $Familia,
+            "Familia"     => $user,
+            "titulo"   => "Editando el registro: ".$Familia->id,
+            'Route'    => 'updateFamilia',
+            'Method'   => 'POST',
+            'msg'      => $this->msg,
+            'IsUpload' => false,
+            'IsNew'    => false,
+        ]);
+
+    }
+
 
 
 }

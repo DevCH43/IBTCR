@@ -54,17 +54,28 @@ class FamiliaRequest extends FormRequest{
         ];
     }
 
-    public function manage()
-    {
-
-        // dd($this->all());
-
+    public function manage(){
         try {
-
             $Familia = [
                 'familia'       => strtoupper(trim($this->familia)),
             ];
+            if ($this->id == 0) {
+                $user = Familia::create($Familia);
+            } else {
+                $user = Familia::find($this->id);
+                $user->update($Familia);
+            }
+        }catch (QueryException $e){
+            return $e->getMessage();
+        }
+        return $user;
+    }
 
+    public function attachMember(){
+        try {
+            $Familia = [
+                'familia'       => strtoupper(trim($this->familia)),
+            ];
             if ($this->id == 0) {
                 $user = Familia::create($Familia);
             } else {
